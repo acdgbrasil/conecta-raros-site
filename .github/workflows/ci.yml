@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+    tags: ["v*.*.*"]
+
+jobs:
+  # ---- Job 1: Testes e qualidade ----
+  test:
+    name: Test & Coverage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Setup Node (Simulated Frontend Env)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: make deps
+
+      - name: Build
+        run: make build-release
+
+      - name: Test with coverage gate
+        run: make coverage
+
+  # ---- Job 2: Build e push da imagem ----
+  image:
+    name: Build & Publish Image
+    needs: test
+    if: github.event_name == 'push'
+    uses: acdgbrasil/.github/.github/workflows/reusable-ghcr-build-push.yml@main
+    with:
+      service: svc-conecta-raros-frontend
+    permissions:
+      contents: read
+      packages: write

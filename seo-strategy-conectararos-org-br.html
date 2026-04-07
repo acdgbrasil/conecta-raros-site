@@ -1,0 +1,1753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Strategy Report — conectararos.org.br</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0a0a0f;
+    --bg-card: rgba(255,255,255,0.03);
+    --bg-card-hover: rgba(255,255,255,0.06);
+    --border: rgba(255,255,255,0.08);
+    --border-hover: rgba(255,255,255,0.15);
+    --text: #e8e8ed;
+    --text-secondary: #8b8b9e;
+    --text-muted: #5a5a6e;
+    --accent: #6366f1;
+    --accent-glow: rgba(99,102,241,0.3);
+    --green: #22c55e;
+    --green-bg: rgba(34,197,94,0.12);
+    --green-border: rgba(34,197,94,0.25);
+    --yellow: #eab308;
+    --yellow-bg: rgba(234,179,8,0.12);
+    --yellow-border: rgba(234,179,8,0.25);
+    --red: #ef4444;
+    --red-bg: rgba(239,68,68,0.12);
+    --red-border: rgba(239,68,68,0.25);
+    --blue: #3b82f6;
+    --blue-bg: rgba(59,130,246,0.12);
+    --orange: #f97316;
+    --orange-bg: rgba(249,115,22,0.12);
+    --orange-border: rgba(249,115,22,0.25);
+    --purple: #a78bfa;
+    --purple-bg: rgba(167,139,250,0.08);
+    --purple-border: rgba(167,139,250,0.15);
+    --radius: 16px;
+    --radius-sm: 10px;
+    --radius-xs: 6px;
+  }
+
+  ::selection { background: var(--accent); color: white; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 20% 50%, rgba(99,102,241,0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(139,92,246,0.04) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 80%, rgba(59,130,246,0.03) 0%, transparent 50%);
+    z-index: -1;
+    animation: ambientDrift 20s ease-in-out infinite;
+  }
+  @keyframes ambientDrift {
+    0%, 100% { transform: translate(0, 0); }
+    33% { transform: translate(-2%, 1%); }
+    66% { transform: translate(1%, -1%); }
+  }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+  .header {
+    padding: 40px 0 0;
+    text-align: center;
+  }
+  .header-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+  }
+  .header-badge .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 8px var(--green);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  .header h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #fff 0%, #a5a5c0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .header .subtitle {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+  }
+
+  .score-section {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    margin-bottom: 40px;
+    padding: 40px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    backdrop-filter: blur(20px);
+  }
+  .score-circle-wrap { position: relative; flex-shrink: 0; }
+  .score-circle {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+  }
+  .score-circle svg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+  }
+  .score-circle svg circle {
+    fill: none;
+    stroke-width: 6;
+    stroke-linecap: round;
+  }
+  .score-circle svg .bg-ring { stroke: rgba(255,255,255,0.06); }
+  .score-circle svg .progress-ring {
+    stroke: var(--accent);
+    stroke-dasharray: 502;
+    stroke-dashoffset: 120;
+    filter: drop-shadow(0 0 6px var(--accent-glow));
+    transition: stroke-dashoffset 1.5s ease-out;
+  }
+  .score-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1;
+    color: white;
+    position: relative;
+    z-index: 1;
+  }
+  .score-label {
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+    margin-top: 4px;
+  }
+  .score-grade {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 1;
+    margin-top: 2px;
+  }
+  .score-details { flex: 1; }
+  .score-details h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .score-details p {
+    color: var(--text-secondary);
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .sub-scores {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px;
+  }
+  .sub-score {
+    padding: 14px 16px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+  }
+  .sub-score-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+  .sub-score-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+  }
+  .sub-score-bar {
+    height: 3px;
+    border-radius: 2px;
+    background: rgba(255,255,255,0.06);
+    margin-top: 8px;
+    overflow: hidden;
+  }
+  .sub-score-bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 1s ease-out;
+  }
+
+  .tabs {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10,10,15,0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 0;
+  }
+  .tabs-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .tabs-inner::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    padding: 16px 24px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-muted);
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    position: relative;
+  }
+  .tab-btn:hover { color: var(--text-secondary); }
+  .tab-btn.active {
+    color: var(--text);
+    border-bottom-color: var(--accent);
+  }
+  .tab-btn .tab-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-left: 8px;
+    color: var(--text-secondary);
+  }
+  .tab-btn.active .tab-count {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+  }
+
+  .tab-content { display: none; padding: 40px 0 80px; }
+  .tab-content.active { display: block; }
+
+  .section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .section-subtitle {
+    color: var(--text-secondary);
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .stat-card {
+    padding: 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    text-align: center;
+    transition: border-color 0.2s;
+  }
+  .stat-card:hover { border-color: var(--border-hover); }
+  .stat-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 16px;
+    transition: border-color 0.2s;
+  }
+  .card:hover { border-color: var(--border-hover); }
+  .card-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+  .badge-critical { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
+  .badge-high { background: var(--orange-bg); color: var(--orange); border: 1px solid var(--orange-border); }
+  .badge-medium { background: var(--yellow-bg); color: var(--yellow); border: 1px solid var(--yellow-border); }
+  .badge-low { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+  .badge-pass { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+  .badge-warning { background: var(--yellow-bg); color: var(--yellow); border: 1px solid var(--yellow-border); }
+  .badge-fail { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
+
+  .finding {
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 16px;
+    align-items: start;
+  }
+  .finding:last-child { border-bottom: none; }
+  .finding-status {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-top: 8px;
+  }
+  .finding-status.pass { background: var(--green); box-shadow: 0 0 6px rgba(34,197,94,0.4); }
+  .finding-status.warning { background: var(--yellow); box-shadow: 0 0 6px rgba(234,179,8,0.4); }
+  .finding-status.fail { background: var(--red); box-shadow: 0 0 6px rgba(239,68,68,0.4); }
+  .finding-content h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .finding-content p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  .finding-rec {
+    margin-top: 8px;
+    padding: 10px 14px;
+    background: rgba(99,102,241,0.06);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius-xs) var(--radius-xs) 0;
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  .collapsible {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .collapsible:hover { border-color: var(--border-hover); }
+  .collapsible-header {
+    padding: 20px 24px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+  .collapsible-header:hover { background: rgba(255,255,255,0.02); }
+  .collapsible-title {
+    font-weight: 600;
+    color: var(--text);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .collapsible-body {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.35s ease;
+  }
+  .collapsible.open .collapsible-body {
+    max-height: 5000px;
+  }
+  .collapsible-body-inner {
+    padding: 0 24px 24px;
+  }
+  .collapse-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: var(--text-muted);
+    transition: transform 0.3s, background 0.2s;
+    flex-shrink: 0;
+  }
+  .collapsible.open .collapse-icon { transform: rotate(180deg); }
+
+  .page-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+  }
+  .page-table th {
+    text-align: left;
+    padding: 12px 16px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+    font-weight: 600;
+  }
+  .page-table td {
+    padding: 12px 16px;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    vertical-align: top;
+  }
+  .page-table tr:hover td { background: rgba(255,255,255,0.02); }
+  .page-url {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    word-break: break-all;
+  }
+
+  .checklist-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .checklist-item:last-child { border-bottom: none; }
+  .check-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    margin-top: 1px;
+  }
+  .check-icon.pass {
+    background: var(--green-bg);
+    color: var(--green);
+    border: 1px solid var(--green-border);
+  }
+  .check-icon.fail {
+    background: var(--red-bg);
+    color: var(--red);
+    border: 1px solid var(--red-border);
+  }
+  .check-icon.warn {
+    background: var(--yellow-bg);
+    color: var(--yellow);
+    border: 1px solid var(--yellow-border);
+  }
+  .check-text {
+    font-size: 14px;
+    color: var(--text);
+  }
+  .check-text.muted {
+    color: var(--text-secondary);
+  }
+
+  .action-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 24px;
+    margin-bottom: 12px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    transition: border-color 0.2s;
+  }
+  .action-item:hover { border-color: var(--border-hover); }
+  .action-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--accent);
+    flex-shrink: 0;
+    width: 36px;
+    text-align: center;
+    opacity: 0.5;
+  }
+  .action-content { flex: 1; }
+  .action-title {
+    font-weight: 600;
+    color: var(--text);
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+  .action-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  .action-impact {
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--green);
+    font-weight: 500;
+  }
+
+  .cluster {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+  .cluster-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    color: var(--purple);
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  .cluster-pages {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .cluster-page {
+    padding: 6px 14px;
+    border-radius: 100px;
+    background: var(--purple-bg);
+    border: 1px solid var(--purple-border);
+    font-size: 13px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-secondary);
+  }
+  .cluster-page.pillar {
+    background: rgba(167,139,250,0.15);
+    border-color: rgba(167,139,250,0.3);
+    color: var(--purple);
+    font-weight: 600;
+  }
+
+  .lsi-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .lsi-tag {
+    padding: 6px 14px;
+    background: rgba(99,102,241,0.08);
+    border: 1px solid rgba(99,102,241,0.2);
+    border-radius: 100px;
+    font-size: 13px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text);
+    transition: all 0.2s;
+  }
+  .lsi-tag:hover {
+    background: rgba(99,102,241,0.15);
+    border-color: rgba(99,102,241,0.4);
+  }
+  .lsi-tag.integrated {
+    background: var(--green-bg);
+    border-color: var(--green-border);
+    color: var(--green);
+  }
+  .lsi-tag.missing {
+    background: var(--red-bg);
+    border-color: var(--red-border);
+    color: var(--red);
+    opacity: 0.7;
+  }
+
+  @media (max-width: 768px) {
+    .header h1 { font-size: 28px; }
+    .score-section { flex-direction: column; text-align: center; padding: 24px; gap: 24px; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .sub-scores { grid-template-columns: repeat(2, 1fr); }
+    .action-item { flex-direction: column; gap: 12px; }
+  }
+
+  @media print {
+    .tabs { display: none; }
+    .tab-content { display: block !important; page-break-before: always; }
+    body::before { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="container">
+    <div class="header-badge"><span class="dot"></span> Site-Wide SEO Audit</div>
+    <h1>conectararos.org.br</h1>
+    <p class="subtitle">Comprehensive analysis of 3 pages &mdash; Generated March 30, 2026</p>
+  </div>
+</div>
+
+<!-- Score overview -->
+<div class="container" style="padding-top: 0; padding-bottom: 32px;">
+  <div class="score-section">
+    <div class="score-circle-wrap">
+      <div class="score-circle">
+        <svg viewBox="0 0 160 160">
+          <circle class="bg-ring" cx="80" cy="80" r="74"/>
+          <circle class="progress-ring" cx="80" cy="80" r="74"/>
+        </svg>
+        <span class="score-number">76</span>
+        <span class="score-grade">B</span>
+        <span class="score-label">Overall Health</span>
+      </div>
+    </div>
+    <div class="score-details">
+      <h2>Good foundation, but content depth and technical gaps limit ranking potential</h2>
+      <p>Conecta Raros has solid metadata with unique titles, complete Open Graph tags, and structured data on the homepage. However, thin content on the contact page, a missing favicon, 8+ placeholder links in the footer, and a lack of semantic keyword depth across only 3 pages significantly limit organic visibility. Expanding content and fixing technical gaps will unlock substantial traffic growth.</p>
+      <div class="sub-scores">
+        <div class="sub-score">
+          <div class="sub-score-label">Technical</div>
+          <div class="sub-score-value" style="color: var(--yellow)">64</div>
+          <div class="sub-score-bar"><div class="sub-score-bar-fill" style="width:64%; background: var(--yellow)"></div></div>
+        </div>
+        <div class="sub-score">
+          <div class="sub-score-label">Content</div>
+          <div class="sub-score-value" style="color: var(--green)">82</div>
+          <div class="sub-score-bar"><div class="sub-score-bar-fill" style="width:82%; background: var(--green)"></div></div>
+        </div>
+        <div class="sub-score">
+          <div class="sub-score-label">Architecture</div>
+          <div class="sub-score-value" style="color: var(--green)">82</div>
+          <div class="sub-score-bar"><div class="sub-score-bar-fill" style="width:82%; background: var(--green)"></div></div>
+        </div>
+        <div class="sub-score">
+          <div class="sub-score-label">Cross-Page</div>
+          <div class="sub-score-value" style="color: var(--green)">80</div>
+          <div class="sub-score-bar"><div class="sub-score-bar-fill" style="width:80%; background: var(--green)"></div></div>
+        </div>
+        <div class="sub-score">
+          <div class="sub-score-label">Social & Schema</div>
+          <div class="sub-score-value" style="color: var(--yellow)">75</div>
+          <div class="sub-score-bar"><div class="sub-score-bar-fill" style="width:75%; background: var(--yellow)"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB NAVIGATION -->
+<div class="tabs">
+  <div class="tabs-inner">
+    <button class="tab-btn active" onclick="switchTab('executive')">Executive Summary</button>
+    <button class="tab-btn" onclick="switchTab('pages')">Page Breakdown <span class="tab-count">3</span></button>
+    <button class="tab-btn" onclick="switchTab('sitewide')">Site-Wide Issues <span class="tab-count">6</span></button>
+    <button class="tab-btn" onclick="switchTab('technical')">Technical</button>
+    <button class="tab-btn" onclick="switchTab('content')">Content Strategy</button>
+    <button class="tab-btn" onclick="switchTab('linking')">Internal Linking</button>
+    <button class="tab-btn" onclick="switchTab('actions')">Action Plan</button>
+  </div>
+</div>
+
+<!-- ==================== TAB 1: EXECUTIVE SUMMARY ==================== -->
+<div id="tab-executive" class="tab-content active">
+<div class="container">
+
+  <div class="section-title">Executive Summary</div>
+  <div class="section-subtitle">High-level overview of conectararos.org.br's SEO health and top priorities</div>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-value">3</div>
+      <div class="stat-label">Pages Audited</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">1</div>
+      <div class="stat-label">Critical Issues</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">4</div>
+      <div class="stat-label">High Priority</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">8</div>
+      <div class="stat-label">Warnings</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">~500</div>
+      <div class="stat-label">Avg Word Count</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">33%</div>
+      <div class="stat-label">Schema Coverage</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom: 24px;">
+    <div class="card-title" style="margin-bottom: 16px;">Key Findings</div>
+    <div style="color: var(--text-secondary); font-size: 15px; line-height: 1.8;">
+      Conecta Raros has excellent metadata fundamentals &mdash; every page has unique titles, meta descriptions, complete Open Graph and Twitter Card tags, and proper canonical URLs. The homepage features strong structured data with Organization and FAQPage schema. However, the site suffers from 8+ broken placeholder links (href="#") in the footer across all pages, no favicon on any page, and thin content on the contact page (~200 words). The biggest strategic limitation is the site's size: with only 3 pages, it cannot build topical authority against competitors like raras.org.br (40+ institutions, 7,000+ words) and casahunter.org.br. The dashboard page does not link to the contact page, creating a conversion dead-end. This audit is limited to HTML analysis only &mdash; it cannot measure actual page speed, backlink profile, Core Web Vitals, or real search rankings.
+    </div>
+  </div>
+
+  <div class="section-title" style="font-size: 18px; margin-top: 32px;">Top 3 Priorities</div>
+  <div class="section-subtitle">The highest-impact actions to take right now</div>
+
+  <div class="action-item">
+    <div class="action-number">1</div>
+    <div class="action-content">
+      <div class="action-title">Fix all 8+ placeholder links in the footer and add a favicon</div>
+      <div class="action-desc">Every page has footer links pointing to "#" for Painel Demogr&aacute;fico, Painel Cl&iacute;nico, Portal do Pesquisador, API de Sa&uacute;de, Comit&ecirc; de &Eacute;tica, Pol&iacute;tica de Dados, Seguran&ccedil;a da Informa&ccedil;&atilde;o, and Governan&ccedil;a Compartilhada. These broken links hurt crawlability and user trust. Either create these pages or link to relevant existing content. Also add a favicon &mdash; the site has no &lt;link rel="icon"&gt; tag on any page.</div>
+      <div class="action-impact">Expected impact: Fixes critical crawlability issue and improves trust signals on every page</div>
+    </div>
+    <span class="badge badge-critical">Critical</span>
+  </div>
+
+  <div class="action-item">
+    <div class="action-number">2</div>
+    <div class="action-content">
+      <div class="action-title">Expand content to build topical authority for "doen&ccedil;as raras Brasil"</div>
+      <div class="action-desc">With only 3 pages, Conecta Raros cannot compete for topical authority against raras.org.br (40+ pages, 7,000+ words). Create at least 5-8 new content pages targeting high-value keywords: "O que s&atilde;o doen&ccedil;as raras", "Lista de doen&ccedil;as raras no Brasil", "Diagn&oacute;stico precoce doen&ccedil;as raras", "LGPD e dados de sa&uacute;de", and "Pol&iacute;tica Nacional de Doen&ccedil;as Raras".</div>
+      <div class="action-impact">Expected impact: Major increase in organic keyword coverage and authority signals</div>
+    </div>
+    <span class="badge badge-high">High</span>
+  </div>
+
+  <div class="action-item">
+    <div class="action-number">3</div>
+    <div class="action-content">
+      <div class="action-title">Add ContactPage and WebApplication schema markup</div>
+      <div class="action-desc">Only the homepage has meaningful schema (FAQPage + Organization). Add ContactPage schema to contato.html and WebApplication schema to dashboard.html. This improves rich snippet eligibility and helps Google understand page purpose.</div>
+      <div class="action-impact">Expected impact: Better rich results and improved click-through rates from SERPs</div>
+    </div>
+    <span class="badge badge-high">High</span>
+  </div>
+
+</div>
+</div>
+
+<!-- ==================== TAB 2: PAGE-BY-PAGE BREAKDOWN ==================== -->
+<div id="tab-pages" class="tab-content">
+<div class="container">
+
+  <div class="section-title">Page-by-Page Breakdown</div>
+  <div class="section-subtitle">Individual audit results for each crawled page</div>
+
+  <div class="card" style="overflow-x: auto; padding: 0;">
+    <table class="page-table">
+      <thead>
+        <tr>
+          <th>Page</th>
+          <th>Title</th>
+          <th>Words</th>
+          <th>H1</th>
+          <th>Meta Desc</th>
+          <th>Schema</th>
+          <th>OG Tags</th>
+          <th>Issues</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="page-url">/index.html</span></td>
+          <td>Conecta Raros &mdash; Mapeamento de Doen&ccedil;as Raras no Brasil</td>
+          <td>~900</td>
+          <td><span class="badge badge-pass">&#10003;</span></td>
+          <td><span class="badge badge-pass">&#10003;</span></td>
+          <td><span class="badge badge-pass">&#10003;</span></td>
+          <td><span class="badge badge-pass">&#10003;</span></td>
+          <td><span class="badge badge-medium">4</span></td>
+        </tr>
+        <tr>
+          <td><span class="page-url">/contato.html</span></td>
+          <td>Contato e Parcerias &mdash; Conecta Raros</td>
+          <td>~200</td>
+          <td><span class="badge badge-pass">&#10003;</span></td>
+          <td><span class="badge badge-warning">!</span></td>
+          <td><span class="badge badge-warning">!</span></td>
+          <td><span class="badge badge-pass">&#10003;</span></td>
+          <td><span class="badge badge-high">5</span></td>
+        </tr>
+        <tr>
+          <td><span class="page-url">/dashboard.html</span></td>
+          <td>Dashboard de Dados Epidemiol&oacute;gicos &mdash; Conecta Raros</td>
+          <td>~450</td>
+          <td><span class="badge badge-warning">!</span></td>
+          <td><span class="badge badge-pass">&#10003;</span></td>
+          <td><span class="badge badge-warning">!</span></td>
+          <td><span class="badge badge-pass">&#10003;</span></td>
+          <td><span class="badge badge-high">5</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- index.html details -->
+  <div class="collapsible" style="margin-top: 24px;">
+    <div class="collapsible-header">
+      <span class="collapsible-title">
+        <span class="page-url">/index.html</span>
+        <span class="badge badge-medium">4 issues</span>
+      </span>
+      <span class="collapse-icon">&#9660;</span>
+    </div>
+    <div class="collapsible-body">
+      <div class="collapsible-body-inner">
+        <div class="finding">
+          <div class="finding-status pass"></div>
+          <div class="finding-content">
+            <h4>Title Tag: Excellent (57 chars)</h4>
+            <p>"Conecta Raros &mdash; Mapeamento de Doen&ccedil;as Raras no Brasil" &mdash; includes primary keyword, proper length, descriptive.</p>
+          </div>
+          <span class="badge badge-pass">Pass</span>
+        </div>
+        <div class="finding">
+          <div class="finding-status pass"></div>
+          <div class="finding-content">
+            <h4>Meta Description: Good (155 chars)</h4>
+            <p>Descriptive, includes target keywords "doen&ccedil;as gen&eacute;ticas e raras", mentions LGPD compliance as trust signal.</p>
+          </div>
+          <span class="badge badge-pass">Pass</span>
+        </div>
+        <div class="finding">
+          <div class="finding-status pass"></div>
+          <div class="finding-content">
+            <h4>Structured Data: Organization + FAQPage</h4>
+            <p>Strong structured data with 6 FAQ items covering privacy, LGPD, partnerships, costs, data sources, and academic exports. Organization schema includes email and areaServed.</p>
+          </div>
+          <span class="badge badge-pass">Pass</span>
+        </div>
+        <div class="finding">
+          <div class="finding-status fail"></div>
+          <div class="finding-content">
+            <h4>8 Broken Footer Links (href="#")</h4>
+            <p>Footer contains 8 links pointing to "#" for pages that don't exist: Painel Demogr&aacute;fico, Painel Cl&iacute;nico, Portal do Pesquisador, API de Sa&uacute;de, Comit&ecirc; de &Eacute;tica (CONEP), Pol&iacute;tica de Dados e LGPD, Seguran&ccedil;a da Informa&ccedil;&atilde;o, Governan&ccedil;a Compartilhada. Social icons (LinkedIn, Twitter, GitHub) also lack real URLs.</p>
+            <div class="finding-rec">Create these pages or remove the links. Each placeholder link is a missed SEO opportunity and signals incomplete site to crawlers.</div>
+          </div>
+          <span class="badge badge-critical">Critical</span>
+        </div>
+        <div class="finding">
+          <div class="finding-status fail"></div>
+          <div class="finding-content">
+            <h4>No Favicon</h4>
+            <p>No &lt;link rel="icon"&gt; tag found. Browsers show a generic icon, reducing brand recognition in tabs and bookmarks.</p>
+            <div class="finding-rec">Add a favicon in multiple formats: &lt;link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"&gt;</div>
+          </div>
+          <span class="badge badge-high">High</span>
+        </div>
+        <div class="finding">
+          <div class="finding-status warning"></div>
+          <div class="finding-content">
+            <h4>Logo Links to "#" Instead of Homepage</h4>
+            <p>The header logo &lt;a href="#"&gt; should link to "/" or "index.html" for proper navigation and crawlability.</p>
+            <div class="finding-rec">Change href="#" to href="/" on the logo anchor tag.</div>
+          </div>
+          <span class="badge badge-medium">Medium</span>
+        </div>
+        <div class="finding">
+          <div class="finding-status warning"></div>
+          <div class="finding-content">
+            <h4>No Preload/Preconnect for External Resources</h4>
+            <p>Phosphor Icons loads from unpkg.com with no preconnect hint, adding latency to initial page render.</p>
+            <div class="finding-rec">Add &lt;link rel="preconnect" href="https://unpkg.com" crossorigin&gt; to the &lt;head&gt;.</div>
+          </div>
+          <span class="badge badge-low">Low</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- contato.html details -->
+  <div class="collapsible">
+    <div class="collapsible-header">
+      <span class="collapsible-title">
+        <span class="page-url">/contato.html</span>
+        <span class="badge badge-high">5 issues</span>
+      </span>
+      <span class="collapse-icon">&#9660;</span>
+    </div>
+    <div class="collapsible-body">
+      <div class="collapsible-body-inner">
+        <div class="finding">
+          <div class="finding-status warning"></div>
+          <div class="finding-content">
+            <h4>Thin Content (~200 words)</h4>
+            <p>The contact page has only ~200 words of body text (excluding navigation and footer). This is below the 300-word threshold and may be flagged as thin content by search engines.</p>
+            <div class="finding-rec">Add a paragraph about the partnership process, what institutions can expect, timeline for integration, and supported institution types. Aim for 400+ words.</div>
+          </div>
+          <span class="badge badge-high">High</span>
+        </div>
+        <div class="finding">
+          <div class="finding-status warning"></div>
+          <div class="finding-content">
+            <h4>Meta Description Slightly Over Limit (163 chars)</h4>
+            <p>"Solicite parceria institucional com o Conecta Raros. Integra&ccedil;&atilde;o t&eacute;cnica para hospitais, centros de pesquisa acad&ecirc;micos e &oacute;rg&atilde;os governamentais de sa&uacute;de no Brasil." may get truncated in SERPs.</p>
+            <div class="finding-rec">Trim to 155-160 characters. Remove "acad&ecirc;micos" or shorten to fit.</div>
+          </div>
+          <span class="badge badge-medium">Medium</span>
+        </div>
+        <div class="finding">
+          <div class="finding-status warning"></div>
+          <div class="finding-content">
+            <h4>Missing ContactPage Schema</h4>
+            <p>Only Organization schema is present. A ContactPage schema would help Google understand this is a contact/partnership page and could improve local search visibility.</p>
+            <div class="finding-rec">Add ContactPage JSON-LD with contactType, telephone, and email properties.</div>
+          </div>
+          <span class="badge badge-high">High</span>
+        </div>
+        <div class="finding">
+          <div class="finding-status fail"></div>
+          <div class="finding-content">
+            <h4>8 Broken Footer Links</h4>
+            <p>Same footer placeholder links as homepage &mdash; all pointing to "#".</p>
+          </div>
+          <span class="badge badge-critical">Critical</span>
+        </div>
+        <div class="finding">
+          <div class="finding-status fail"></div>
+          <div class="finding-content">
+            <h4>No Favicon</h4>
+            <p>No favicon reference on this page.</p>
+          </div>
+          <span class="badge badge-high">High</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- dashboard.html details -->
+  <div class="collapsible">
+    <div class="collapsible-header">
+      <span class="collapsible-title">
+        <span class="page-url">/dashboard.html</span>
+        <span class="badge badge-high">5 issues</span>
+      </span>
+      <span class="collapse-icon">&#9660;</span>
+    </div>
+    <div class="collapsible-body">
+      <div class="collapsible-body-inner">
+        <div class="finding">
+          <div class="finding-status warning"></div>
+          <div class="finding-content">
+            <h4>H1 "Painel Geral" Is Not Descriptive for SEO</h4>
+            <p>The H1 tag contains only "Painel Geral" which is generic and doesn't include target keywords. Compare with the title tag "Dashboard de Dados Epidemiol&oacute;gicos &mdash; Conecta Raros" which is much better.</p>
+            <div class="finding-rec">Change H1 to "Painel de Dados Epidemiol&oacute;gicos &mdash; Doen&ccedil;as Raras no Brasil" or similar keyword-rich heading.</div>
+          </div>
+          <span class="badge badge-high">High</span>
+        </div>
+        <div class="finding">
+          <div class="finding-status warning"></div>
+          <div class="finding-content">
+            <h4>Multiple &lt;main&gt; Elements in Single Page</h4>
+            <p>The dashboard uses 4 &lt;main&gt; elements (one per "page" view: Vis&atilde;o Geral, Pacientes, Relat&oacute;rios, Preditivos) with JS-based switching. Only one &lt;main&gt; should be present per HTML document for proper semantics.</p>
+            <div class="finding-rec">Replace additional &lt;main&gt; elements with &lt;section&gt; or &lt;div role="tabpanel"&gt; and keep only one &lt;main&gt;.</div>
+          </div>
+          <span class="badge badge-medium">Medium</span>
+        </div>
+        <div class="finding">
+          <div class="finding-status warning"></div>
+          <div class="finding-content">
+            <h4>Missing WebApplication/Dataset Schema</h4>
+            <p>The dashboard is an interactive data application but only has basic Organization schema. Missing an opportunity for rich results.</p>
+            <div class="finding-rec">Add WebApplication or Dataset JSON-LD schema describing the epidemiological dashboard, its data scope, and update frequency.</div>
+          </div>
+          <span class="badge badge-high">High</span>
+        </div>
+        <div class="finding">
+          <div class="finding-status fail"></div>
+          <div class="finding-content">
+            <h4>No Link to Contact Page</h4>
+            <p>The dashboard has no internal link to contato.html. Users viewing data cannot easily navigate to the partnership form &mdash; this is a conversion dead-end.</p>
+            <div class="finding-rec">Add a CTA or nav link to contato.html (e.g., "Seja uma Institui&ccedil;&atilde;o Parceira" button).</div>
+          </div>
+          <span class="badge badge-high">High</span>
+        </div>
+        <div class="finding">
+          <div class="finding-status fail"></div>
+          <div class="finding-content">
+            <h4>No Favicon</h4>
+            <p>No favicon reference on this page.</p>
+          </div>
+          <span class="badge badge-high">High</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ==================== TAB 3: SITE-WIDE ISSUES ==================== -->
+<div id="tab-sitewide" class="tab-content">
+<div class="container">
+
+  <div class="section-title">Site-Wide Issues</div>
+  <div class="section-subtitle">Cross-cutting concerns that affect multiple pages</div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom: 16px;">Duplicate Content &amp; Cannibalization</div>
+    <div class="finding">
+      <div class="finding-status pass"></div>
+      <div class="finding-content">
+        <h4>No Duplicate Titles</h4>
+        <p>All 3 pages have unique, descriptive title tags. No cannibalization detected.</p>
+      </div>
+      <span class="badge badge-pass">Pass</span>
+    </div>
+    <div class="finding">
+      <div class="finding-status pass"></div>
+      <div class="finding-content">
+        <h4>No Duplicate Meta Descriptions</h4>
+        <p>All 3 pages have unique meta descriptions targeting different intents.</p>
+      </div>
+      <span class="badge badge-pass">Pass</span>
+    </div>
+    <div class="finding">
+      <div class="finding-status pass"></div>
+      <div class="finding-content">
+        <h4>No Keyword Cannibalization</h4>
+        <p>Each page targets distinct keywords: index &rarr; "mapeamento doen&ccedil;as raras Brasil", contato &rarr; "parceria institucional", dashboard &rarr; "dados epidemiol&oacute;gicos doen&ccedil;as raras". No overlap detected.</p>
+      </div>
+      <span class="badge badge-pass">Pass</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom: 16px;">Consistency Issues</div>
+    <div class="finding">
+      <div class="finding-status fail"></div>
+      <div class="finding-content">
+        <h4>8 Broken Placeholder Links on Every Page</h4>
+        <p>All 3 pages share an identical footer with 8 links pointing to "#": Painel Demogr&aacute;fico, Painel Cl&iacute;nico, Portal do Pesquisador, API de Sa&uacute;de, Comit&ecirc; de &Eacute;tica (CONEP), Pol&iacute;tica de Dados e LGPD, Seguran&ccedil;a da Informa&ccedil;&atilde;o, Governan&ccedil;a Compartilhada. Additionally, social media icons (LinkedIn, Twitter, GitHub) have no href attributes. That's 11 non-functional links per page &times; 3 pages = 33 broken link instances.</p>
+        <div class="finding-rec">Priority: Create dedicated pages for critical content (Pol&iacute;tica de Dados e LGPD, Seguran&ccedil;a da Informa&ccedil;&atilde;o). For others, either build the pages or remove the links. Add real social media profile URLs.</div>
+      </div>
+      <span class="badge badge-critical">Critical</span>
+    </div>
+    <div class="finding">
+      <div class="finding-status fail"></div>
+      <div class="finding-content">
+        <h4>No Favicon on Any Page</h4>
+        <p>None of the 3 pages include a &lt;link rel="icon"&gt; tag. This affects branding in browser tabs, bookmarks, and search results.</p>
+        <div class="finding-rec">Create a favicon (SVG + PNG fallback) and add it to all pages.</div>
+      </div>
+      <span class="badge badge-high">High</span>
+    </div>
+    <div class="finding">
+      <div class="finding-status warning"></div>
+      <div class="finding-content">
+        <h4>No Breadcrumb Markup on Any Page</h4>
+        <p>None of the pages have BreadcrumbList schema or visible breadcrumb navigation. Breadcrumbs improve crawlability and can appear as rich results in Google.</p>
+        <div class="finding-rec">Add BreadcrumbList JSON-LD schema and visible breadcrumb navigation to contato.html and dashboard.html.</div>
+      </div>
+      <span class="badge badge-medium">Medium</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom: 16px;">Robots.txt &amp; Sitemap</div>
+    <div class="finding">
+      <div class="finding-status pass"></div>
+      <div class="finding-content">
+        <h4>robots.txt: Valid and Well-Configured</h4>
+        <p>Allows all crawlers, references sitemap URL. No important paths blocked.</p>
+      </div>
+      <span class="badge badge-pass">Pass</span>
+    </div>
+    <div class="finding">
+      <div class="finding-status pass"></div>
+      <div class="finding-content">
+        <h4>sitemap.xml: Valid with All Pages</h4>
+        <p>Contains all 3 URLs with recent lastmod dates (2026-03-30), appropriate changefreq values (weekly/monthly/daily), and priority settings. All audited pages are present.</p>
+      </div>
+      <span class="badge badge-pass">Pass</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom: 16px;">Security &amp; Server Headers</div>
+    <div class="finding">
+      <div class="finding-status warning"></div>
+      <div class="finding-content">
+        <h4>Cannot Assess Server Headers (Local File Audit)</h4>
+        <p>This audit was performed on local HTML files, so server-side headers (HSTS, CSP, X-Content-Type-Options, compression, caching) could not be evaluated. Canonical URLs use HTTPS, which is good.</p>
+        <div class="finding-rec">Run a live audit on the deployed site to check: HSTS, Content-Security-Policy, X-Content-Type-Options, gzip/brotli compression, and Cache-Control headers.</div>
+      </div>
+      <span class="badge badge-medium">Medium</span>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ==================== TAB 4: TECHNICAL ==================== -->
+<div id="tab-technical" class="tab-content">
+<div class="container">
+
+  <div class="section-title">Technical SEO</div>
+  <div class="section-subtitle">Infrastructure, performance indicators, and technical implementation</div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom: 20px;">Implementation Checklist</div>
+    <div class="checklist-item"><div class="check-icon pass">&#10003;</div><div class="check-text">HTTPS &mdash; All canonical URLs use https://</div></div>
+    <div class="checklist-item"><div class="check-icon pass">&#10003;</div><div class="check-text">Viewport meta tag on all 3 pages</div></div>
+    <div class="checklist-item"><div class="check-icon pass">&#10003;</div><div class="check-text">Valid robots.txt with sitemap reference</div></div>
+    <div class="checklist-item"><div class="check-icon pass">&#10003;</div><div class="check-text">Valid sitemap.xml with all pages listed</div></div>
+    <div class="checklist-item"><div class="check-icon pass">&#10003;</div><div class="check-text">Canonical tags on all pages (correct self-referencing)</div></div>
+    <div class="checklist-item"><div class="check-icon pass">&#10003;</div><div class="check-text">Meta robots "index, follow" on all pages</div></div>
+    <div class="checklist-item"><div class="check-icon pass">&#10003;</div><div class="check-text">Language attribute &lt;html lang="pt-BR"&gt; on all pages</div></div>
+    <div class="checklist-item"><div class="check-icon warn">!</div><div class="check-text">Schema markup &mdash; Only homepage has meaningful schema (FAQPage). Contato and dashboard have Organization only.</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">No favicon (&lt;link rel="icon"&gt;) on any page</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">No preconnect/preload hints for external resources (unpkg.com)</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">No lazy loading on images (missing loading="lazy")</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">Images use legacy formats (PNG, GIF) &mdash; no WebP/AVIF</div></div>
+    <div class="checklist-item"><div class="check-icon fail">&#10007;</div><div class="check-text">No breadcrumb markup (BreadcrumbList schema)</div></div>
+    <div class="checklist-item"><div class="check-icon warn">!</div><div class="check-text">Security headers &mdash; Cannot assess from local files</div></div>
+  </div>
+
+  <div class="section-title" style="font-size: 18px; margin-top: 32px;">Schema Markup Strategy</div>
+  <div class="section-subtitle">Current structured data and recommended additions</div>
+  <div class="card" style="overflow-x: auto; padding: 0;">
+    <table class="page-table">
+      <thead>
+        <tr>
+          <th>Page</th>
+          <th>Current Schema</th>
+          <th>Recommended Addition</th>
+          <th>Impact</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="page-url">/index.html</span></td>
+          <td>Organization + FAQPage (6 items)</td>
+          <td>Add MedicalOrganization or NGO type</td>
+          <td><span class="badge badge-low">Low</span></td>
+        </tr>
+        <tr>
+          <td><span class="page-url">/contato.html</span></td>
+          <td>Organization only</td>
+          <td>Add ContactPage + ContactPoint schema</td>
+          <td><span class="badge badge-high">High</span></td>
+        </tr>
+        <tr>
+          <td><span class="page-url">/dashboard.html</span></td>
+          <td>Organization only</td>
+          <td>Add WebApplication + Dataset schema</td>
+          <td><span class="badge badge-high">High</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section-title" style="font-size: 18px; margin-top: 32px;">Performance Indicators</div>
+  <div class="section-subtitle">Resource counts, image optimization, and loading patterns</div>
+  <div class="card">
+    <div class="finding">
+      <div class="finding-status warning"></div>
+      <div class="finding-content">
+        <h4>External JavaScript from CDN Without Preconnect</h4>
+        <p>All 3 pages load Phosphor Icons from unpkg.com via &lt;script src="https://unpkg.com/@phosphor-icons/web"&gt; without any preconnect hint. This adds a DNS lookup + TLS handshake delay.</p>
+        <div class="finding-rec">Add &lt;link rel="preconnect" href="https://unpkg.com" crossorigin&gt; to all pages. Consider self-hosting the icon library for better performance control.</div>
+      </div>
+      <span class="badge badge-medium">Medium</span>
+    </div>
+    <div class="finding">
+      <div class="finding-status warning"></div>
+      <div class="finding-content">
+        <h4>Images Use Legacy Formats (PNG, GIF)</h4>
+        <p>Partner logos use PNG format (logo-roraima.png, logo-acdg.svg, logo-envolve.png). One animation uses GIF (inovacao.gif). No WebP or AVIF alternatives detected.</p>
+        <div class="finding-rec">Convert PNG images to WebP with PNG fallback using &lt;picture&gt; element. Replace GIF animations with WebP or MP4 video.</div>
+      </div>
+      <span class="badge badge-low">Low</span>
+    </div>
+    <div class="finding">
+      <div class="finding-status warning"></div>
+      <div class="finding-content">
+        <h4>No Lazy Loading on Images</h4>
+        <p>Partner logo images on index.html lack loading="lazy" attribute. While there are only 3 images, this is a best practice for Core Web Vitals.</p>
+        <div class="finding-rec">Add loading="lazy" to images below the fold. Keep above-the-fold images eager-loaded.</div>
+      </div>
+      <span class="badge badge-low">Low</span>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ==================== TAB 5: CONTENT STRATEGY ==================== -->
+<div id="tab-content" class="tab-content">
+<div class="container">
+
+  <div class="section-title">Content Strategy</div>
+  <div class="section-subtitle">Content gaps, keyword opportunities, and recommended content clusters</div>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-value">1</div>
+      <div class="stat-label">Thin Content Pages</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">2</div>
+      <div class="stat-label">Strong Content Pages</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">~1,550</div>
+      <div class="stat-label">Total Word Count</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">0</div>
+      <div class="stat-label">Missing Meta Desc</div>
+    </div>
+  </div>
+
+  <div class="section-title" style="font-size: 18px;">Suggested Target Keywords</div>
+  <div class="section-subtitle">Based on competitor analysis of raras.org.br, casahunter.org.br, and gov.br/saude</div>
+  <div class="card" style="overflow-x: auto; padding: 0;">
+    <table class="page-table">
+      <thead>
+        <tr>
+          <th>Page</th>
+          <th>Suggested Target Keyword</th>
+          <th>Title Includes KW</th>
+          <th>H1 Includes KW</th>
+          <th>In First 100 Words</th>
+          <th>Cannibalization Risk</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="page-url">/index.html</span></td>
+          <td>mapeamento de doen&ccedil;as raras no Brasil</td>
+          <td><span class="badge badge-pass">&#10003;</span></td>
+          <td><span class="badge badge-pass">&#10003;</span></td>
+          <td><span class="badge badge-pass">&#10003;</span></td>
+          <td><span class="badge badge-pass">None</span></td>
+        </tr>
+        <tr>
+          <td><span class="page-url">/contato.html</span></td>
+          <td>parceria institucional doen&ccedil;as raras</td>
+          <td><span class="badge badge-warning">Partial</span></td>
+          <td><span class="badge badge-fail">&#10007;</span></td>
+          <td><span class="badge badge-warning">Partial</span></td>
+          <td><span class="badge badge-pass">None</span></td>
+        </tr>
+        <tr>
+          <td><span class="page-url">/dashboard.html</span></td>
+          <td>dados epidemiol&oacute;gicos doen&ccedil;as raras Brasil</td>
+          <td><span class="badge badge-pass">&#10003;</span></td>
+          <td><span class="badge badge-fail">&#10007;</span></td>
+          <td><span class="badge badge-warning">Partial</span></td>
+          <td><span class="badge badge-pass">None</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section-title" style="font-size: 18px; margin-top: 32px;">LSI Keyword Coverage</div>
+  <div class="section-subtitle">Green = present on site | Red = missing &mdash; immediate content opportunities</div>
+  <div class="lsi-cloud">
+    <span class="lsi-tag integrated">doen&ccedil;as gen&eacute;ticas</span>
+    <span class="lsi-tag integrated">diagn&oacute;stico precoce</span>
+    <span class="lsi-tag integrated">LGPD</span>
+    <span class="lsi-tag integrated">anonimiza&ccedil;&atilde;o de dados</span>
+    <span class="lsi-tag integrated">dados epidemiol&oacute;gicos</span>
+    <span class="lsi-tag integrated">s&iacute;ndromes raras</span>
+    <span class="lsi-tag integrated">intelig&ecirc;ncia artificial sa&uacute;de</span>
+    <span class="lsi-tag integrated">modelos preditivos</span>
+    <span class="lsi-tag integrated">cadastro de pacientes</span>
+    <span class="lsi-tag integrated">pesquisa cl&iacute;nica</span>
+    <span class="lsi-tag integrated">privacidade de dados</span>
+    <span class="lsi-tag integrated">indicadores de sa&uacute;de</span>
+    <span class="lsi-tag integrated">parceria institucional</span>
+    <span class="lsi-tag integrated">ci&ecirc;ncia aberta</span>
+    <span class="lsi-tag integrated">criptografia</span>
+    <span class="lsi-tag missing">mapeamento gen&eacute;tico</span>
+    <span class="lsi-tag missing">erros inatos do metabolismo</span>
+    <span class="lsi-tag missing">anomalias cong&ecirc;nitas</span>
+    <span class="lsi-tag missing">hospitais universit&aacute;rios</span>
+    <span class="lsi-tag missing">SUS</span>
+    <span class="lsi-tag missing">centro de refer&ecirc;ncia</span>
+    <span class="lsi-tag missing">rede de doen&ccedil;as raras</span>
+    <span class="lsi-tag missing">Pol&iacute;tica Nacional de Doen&ccedil;as Raras</span>
+    <span class="lsi-tag missing">triagem neonatal</span>
+    <span class="lsi-tag missing">aconselhamento gen&eacute;tico</span>
+    <span class="lsi-tag missing">preval&ecirc;ncia</span>
+    <span class="lsi-tag missing">estudo epidemiol&oacute;gico</span>
+    <span class="lsi-tag missing">medicamentos &oacute;rf&atilde;os</span>
+    <span class="lsi-tag missing">terapia g&ecirc;nica</span>
+    <span class="lsi-tag missing">prontu&aacute;rio eletr&ocirc;nico</span>
+  </div>
+  <p style="margin-top: 16px; font-size: 13px; color: var(--text-secondary);">15 of 30 LSI keywords are integrated (50%). The 15 missing terms represent content creation opportunities for new pages.</p>
+
+  <div class="section-title" style="font-size: 18px; margin-top: 32px;">Recommended Content Clusters</div>
+  <div class="section-subtitle">Group related pages into pillar/cluster structure for topic authority</div>
+
+  <div class="cluster">
+    <div class="cluster-title">Cluster 1: Doen&ccedil;as Raras no Brasil (Pillar: Homepage)</div>
+    <div class="cluster-pages">
+      <span class="cluster-page pillar">/index.html (Pillar)</span>
+      <span class="cluster-page">/o-que-sao-doencas-raras (NEW)</span>
+      <span class="cluster-page">/lista-doencas-raras-brasil (NEW)</span>
+      <span class="cluster-page">/estatisticas-doencas-raras (NEW)</span>
+      <span class="cluster-page">/politica-nacional-doencas-raras (NEW)</span>
+    </div>
+  </div>
+
+  <div class="cluster">
+    <div class="cluster-title">Cluster 2: Tecnologia &amp; Dados em Sa&uacute;de (Pillar: Dashboard)</div>
+    <div class="cluster-pages">
+      <span class="cluster-page pillar">/dashboard.html (Pillar)</span>
+      <span class="cluster-page">/inteligencia-artificial-saude (NEW)</span>
+      <span class="cluster-page">/lgpd-dados-saude (NEW)</span>
+      <span class="cluster-page">/diagnostico-precoce-ia (NEW)</span>
+    </div>
+  </div>
+
+  <div class="cluster">
+    <div class="cluster-title">Cluster 3: Parcerias Institucionais (Pillar: Contact)</div>
+    <div class="cluster-pages">
+      <span class="cluster-page pillar">/contato.html (Pillar)</span>
+      <span class="cluster-page">/como-funciona-integracao (NEW)</span>
+      <span class="cluster-page">/hospitais-parceiros (NEW)</span>
+    </div>
+  </div>
+
+  <div class="section-title" style="font-size: 18px; margin-top: 32px;">Content Gap Recommendations</div>
+  <div class="section-subtitle">Suggested new pages and topics based on competitor analysis and missing LSI keywords</div>
+
+  <div class="action-item">
+    <div class="action-number">1</div>
+    <div class="action-content">
+      <div class="action-title">Create "O que s&atilde;o Doen&ccedil;as Raras?" informational page</div>
+      <div class="action-desc">Target keyword: "doen&ccedil;as raras o que s&atilde;o". Competitors like casahunter.org.br and gov.br/saude rank for this high-volume informational query. Cover: definition, the 13 million Brazilians affected, types (gen&eacute;ticas vs n&atilde;o-gen&eacute;ticas), classification per PNDR, and link to your dashboard for real data.</div>
+      <div class="action-impact">Expected impact: Captures top-of-funnel informational traffic and establishes topical authority</div>
+    </div>
+    <span class="badge badge-high">High</span>
+  </div>
+
+  <div class="action-item">
+    <div class="action-number">2</div>
+    <div class="action-content">
+      <div class="action-title">Create "LGPD e Dados de Sa&uacute;de" compliance page</div>
+      <div class="action-desc">You already mention LGPD compliance extensively but have no dedicated page. Create a detailed page explaining how Conecta Raros handles data privacy, anonymization protocols, and compliance. This would replace the placeholder "Pol&iacute;tica de Dados e LGPD" footer link.</div>
+      <div class="action-impact">Expected impact: Builds trust, fixes a broken footer link, and targets "LGPD dados de sa&uacute;de" keyword</div>
+    </div>
+    <span class="badge badge-high">High</span>
+  </div>
+
+  <div class="action-item">
+    <div class="action-number">3</div>
+    <div class="action-content">
+      <div class="action-title">Create "Estat&iacute;sticas de Doen&ccedil;as Raras no Brasil" data page</div>
+      <div class="action-desc">Target keywords: "estat&iacute;sticas doen&ccedil;as raras Brasil", "preval&ecirc;ncia doen&ccedil;as raras". Use your dashboard data to create a public-facing statistics page. Include: total patients, syndromes cataloged, regional distribution, growth trends. This is content competitors like raras.org.br already have.</div>
+      <div class="action-impact">Expected impact: Attracts researchers, journalists, and policy-makers searching for rare disease data</div>
+    </div>
+    <span class="badge badge-medium">Medium</span>
+  </div>
+
+</div>
+</div>
+
+<!-- ==================== TAB 6: INTERNAL LINKING ==================== -->
+<div id="tab-linking" class="tab-content">
+<div class="container">
+
+  <div class="section-title">Internal Linking Analysis</div>
+  <div class="section-subtitle">Link equity distribution, orphan pages, and linking opportunities</div>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-value">14</div>
+      <div class="stat-label">Total Internal Links</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">0</div>
+      <div class="stat-label">Orphan Pages</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">1</div>
+      <div class="stat-label">Dead-End Pages</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">~5</div>
+      <div class="stat-label">Avg Links/Page</div>
+    </div>
+  </div>
+
+  <div class="section-title" style="font-size: 18px;">Link Equity Distribution</div>
+  <div class="section-subtitle">How internal link juice is distributed across pages</div>
+  <div class="card" style="overflow-x: auto; padding: 0;">
+    <table class="page-table">
+      <thead>
+        <tr>
+          <th>Page</th>
+          <th>Incoming Internal Links</th>
+          <th>Outgoing Internal Links</th>
+          <th>External Links</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="page-url">/index.html</span></td>
+          <td>10 (from contato + dashboard)</td>
+          <td>7 (to contato: 4, dashboard: 3)</td>
+          <td>2 (WhatsApp, unpkg CDN)</td>
+          <td><span class="badge badge-pass">Hub</span></td>
+        </tr>
+        <tr>
+          <td><span class="page-url">/contato.html</span></td>
+          <td>4 (from index)</td>
+          <td>7 (to index: 5, dashboard: 2)</td>
+          <td>2 (WhatsApp x2)</td>
+          <td><span class="badge badge-pass">OK</span></td>
+        </tr>
+        <tr>
+          <td><span class="page-url">/dashboard.html</span></td>
+          <td>3 (from index)</td>
+          <td>5 (to index: 5, contato: 0)</td>
+          <td>1 (ui-avatars.com)</td>
+          <td><span class="badge badge-warning">Dead-end</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section-title" style="font-size: 18px; margin-top: 32px;">Orphan Pages</div>
+  <div class="section-subtitle">Pages receiving zero internal links from other audited pages</div>
+  <div class="card">
+    <p style="color: var(--green); font-weight: 600;">No orphan pages detected. All 3 pages receive at least 3 internal links.</p>
+  </div>
+
+  <div class="section-title" style="font-size: 18px; margin-top: 32px;">Suggested Internal Links</div>
+  <div class="section-subtitle">Specific linking opportunities to improve equity distribution</div>
+
+  <div class="action-item">
+    <div class="action-number">1</div>
+    <div class="action-content">
+      <div class="action-title">dashboard.html &rarr; contato.html</div>
+      <div class="action-desc">The dashboard page has ZERO links to the contact/partnership page. Users viewing epidemiological data are prime candidates for partnership but have no CTA. Add a "Seja uma Institui&ccedil;&atilde;o Parceira" button in the dashboard topbar or sidebar.</div>
+      <div class="action-impact">Expected impact: Significant improvement in conversion flow from data exploration to partnership inquiry</div>
+    </div>
+    <span class="badge badge-high">High</span>
+  </div>
+
+  <div class="action-item">
+    <div class="action-number">2</div>
+    <div class="action-content">
+      <div class="action-title">Fix homepage logo href="#" &rarr; href="/"</div>
+      <div class="action-desc">The logo on index.html links to "#" instead of "/" or "index.html". While it's already the homepage, this creates a self-referencing "#" link instead of a proper navigation pattern.</div>
+      <div class="action-impact">Expected impact: Better crawlability and consistent navigation pattern</div>
+    </div>
+    <span class="badge badge-medium">Medium</span>
+  </div>
+
+  <div class="action-item">
+    <div class="action-number">3</div>
+    <div class="action-content">
+      <div class="action-title">Replace 8 footer placeholder links with real pages</div>
+      <div class="action-desc">Each "#" link in the footer is a wasted internal linking opportunity. When these pages are created (per content strategy recommendations), they will form a strong footer-based internal linking structure across the entire site.</div>
+      <div class="action-impact">Expected impact: 8 new pages &times; 3 linking pages = 24 new internal links, dramatically improving site crawl depth</div>
+    </div>
+    <span class="badge badge-high">High</span>
+  </div>
+
+</div>
+</div>
+
+<!-- ==================== TAB 7: ACTION PLAN ==================== -->
+<div id="tab-actions" class="tab-content">
+<div class="container">
+
+  <div class="section-title">Prioritized Action Plan</div>
+  <div class="section-subtitle">Every recommendation ranked by impact, grouped by effort level</div>
+
+  <div class="section-title" style="font-size: 18px; color: var(--green);">Quick Wins <span style="font-size: 14px; color: var(--text-muted); font-weight: 400;">&mdash; less than 1 hour each</span></div>
+  <div style="margin-bottom: 24px;">
+    <div class="action-item">
+      <div class="action-number">1</div>
+      <div class="action-content">
+        <div class="action-title">Add a favicon to all pages</div>
+        <div class="action-desc">Create an SVG favicon using the "CR" logo mark or the accent color (#E65C3B). Add &lt;link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"&gt; to all 3 pages.</div>
+        <div class="action-impact">Expected impact: Improved brand recognition in browser tabs, bookmarks, and Google search results</div>
+      </div>
+      <span class="badge badge-high">High</span>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">2</div>
+      <div class="action-content">
+        <div class="action-title">Fix homepage logo href="#" to href="/"</div>
+        <div class="action-desc">In index.html, change &lt;a href="#" class="logo"&gt; to &lt;a href="/" class="logo"&gt;. One-line fix.</div>
+        <div class="action-impact">Expected impact: Proper navigation pattern and better crawlability</div>
+      </div>
+      <span class="badge badge-medium">Medium</span>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">3</div>
+      <div class="action-content">
+        <div class="action-title">Add preconnect hint for unpkg.com</div>
+        <div class="action-desc">Add &lt;link rel="preconnect" href="https://unpkg.com" crossorigin&gt; to the &lt;head&gt; of all 3 pages, before the Phosphor Icons script tag.</div>
+        <div class="action-impact">Expected impact: Faster initial page load by eliminating DNS lookup delay</div>
+      </div>
+      <span class="badge badge-low">Low</span>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">4</div>
+      <div class="action-content">
+        <div class="action-title">Add loading="lazy" to below-fold images</div>
+        <div class="action-desc">Add loading="lazy" to the 3 partner logo images in the hero section of index.html.</div>
+        <div class="action-impact">Expected impact: Minor Core Web Vitals improvement</div>
+      </div>
+      <span class="badge badge-low">Low</span>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">5</div>
+      <div class="action-content">
+        <div class="action-title">Update dashboard H1 to include keywords</div>
+        <div class="action-desc">Change &lt;h1&gt;Painel Geral&lt;/h1&gt; to &lt;h1&gt;Painel de Dados Epidemiol&oacute;gicos &mdash; Doen&ccedil;as Raras no Brasil&lt;/h1&gt; to match the title tag's keyword targeting.</div>
+        <div class="action-impact">Expected impact: Better keyword relevance for the dashboard page</div>
+      </div>
+      <span class="badge badge-high">High</span>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">6</div>
+      <div class="action-content">
+        <div class="action-title">Add a CTA link from dashboard to contact page</div>
+        <div class="action-desc">Add a "Seja uma Institui&ccedil;&atilde;o Parceira" link or button in the dashboard sidebar or topbar linking to contato.html.</div>
+        <div class="action-impact">Expected impact: Eliminates a conversion dead-end and improves internal link distribution</div>
+      </div>
+      <span class="badge badge-high">High</span>
+    </div>
+  </div>
+
+  <div class="section-title" style="font-size: 18px; color: var(--orange);">High Impact <span style="font-size: 14px; color: var(--text-muted); font-weight: 400;">&mdash; 1-4 hours each</span></div>
+  <div style="margin-bottom: 24px;">
+    <div class="action-item">
+      <div class="action-number">7</div>
+      <div class="action-content">
+        <div class="action-title">Add ContactPage schema to contato.html</div>
+        <div class="action-desc">Add ContactPage JSON-LD with contactType: "institutional partnerships", email, and areaServed properties. Also add a contactPoint with telephone (WhatsApp number already on page).</div>
+        <div class="action-impact">Expected impact: Improved rich results eligibility for contact-related searches</div>
+      </div>
+      <span class="badge badge-high">High</span>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">8</div>
+      <div class="action-content">
+        <div class="action-title">Add WebApplication schema to dashboard.html</div>
+        <div class="action-desc">Add WebApplication JSON-LD describing the epidemiological dashboard: applicationCategory "HealthApplication", offers, operatingSystem "Web".</div>
+        <div class="action-impact">Expected impact: Better Google understanding of the page purpose and potential rich results</div>
+      </div>
+      <span class="badge badge-high">High</span>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">9</div>
+      <div class="action-content">
+        <div class="action-title">Expand contato.html content to 400+ words</div>
+        <div class="action-desc">Add sections about: the partnership process, what types of institutions are eligible, expected integration timeline, available support, and success stories from current partners. Currently at ~200 words (thin content).</div>
+        <div class="action-impact">Expected impact: Resolves thin content flag and improves ranking for partnership-related queries</div>
+      </div>
+      <span class="badge badge-high">High</span>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">10</div>
+      <div class="action-content">
+        <div class="action-title">Create "Pol&iacute;tica de Dados e LGPD" dedicated page</div>
+        <div class="action-desc">Replace the placeholder footer link with a real page covering: data handling policies, anonymization protocols, Privacy by Design approach, LGPD compliance details. This content is already partially in the FAQ &mdash; expand it into a full page.</div>
+        <div class="action-impact">Expected impact: Fixes a critical broken link, builds trust, and targets "LGPD dados sa&uacute;de" searches</div>
+      </div>
+      <span class="badge badge-critical">Critical</span>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">11</div>
+      <div class="action-content">
+        <div class="action-title">Add BreadcrumbList schema to contato.html and dashboard.html</div>
+        <div class="action-desc">Add BreadcrumbList JSON-LD: Home &gt; Contato / Home &gt; Dashboard. This improves SERP appearance and helps crawlers understand site hierarchy.</div>
+        <div class="action-impact">Expected impact: Breadcrumb rich results in Google search</div>
+      </div>
+      <span class="badge badge-medium">Medium</span>
+    </div>
+  </div>
+
+  <div class="section-title" style="font-size: 18px; color: var(--purple);">Strategic Initiatives <span style="font-size: 14px; color: var(--text-muted); font-weight: 400;">&mdash; ongoing</span></div>
+  <div style="margin-bottom: 24px;">
+    <div class="action-item">
+      <div class="action-number">12</div>
+      <div class="action-content">
+        <div class="action-title">Build content cluster: 5-8 new pages for topical authority</div>
+        <div class="action-desc">Create new pages targeting missing LSI keywords and high-value search terms: "O que s&atilde;o doen&ccedil;as raras", "Lista de doen&ccedil;as raras no Brasil", "Estat&iacute;sticas de doen&ccedil;as raras", "LGPD e dados de sa&uacute;de", "Diagn&oacute;stico precoce com IA", "Como funciona a integra&ccedil;&atilde;o", "Hospitais parceiros". Each page should be 800-1500 words, interlinked with existing content.</div>
+        <div class="action-impact">Expected impact: Dramatic increase in keyword coverage, topical authority, and organic traffic. Currently competing with 3 pages vs raras.org.br's 40+ pages.</div>
+      </div>
+      <span class="badge badge-critical">Critical</span>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">13</div>
+      <div class="action-content">
+        <div class="action-title">Replace all placeholder footer links with real pages</div>
+        <div class="action-desc">As new content is created, systematically replace each "#" link in the footer with the actual page URL. Priority order: Pol&iacute;tica de Dados e LGPD, Seguran&ccedil;a da Informa&ccedil;&atilde;o, Comit&ecirc; de &Eacute;tica, then the platform links (Painel Demogr&aacute;fico, Painel Cl&iacute;nico, etc.).</div>
+        <div class="action-impact">Expected impact: Eliminates 33 broken link instances across the site and creates a robust footer navigation</div>
+      </div>
+      <span class="badge badge-critical">Critical</span>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">14</div>
+      <div class="action-content">
+        <div class="action-title">Add social media profile links</div>
+        <div class="action-desc">The footer has LinkedIn, Twitter, and GitHub icons with no URLs. Create official social profiles and link them. Add sameAs property to Organization schema for social proof signals.</div>
+        <div class="action-impact">Expected impact: Social proof, brand consistency, and improved Organization schema completeness</div>
+      </div>
+      <span class="badge badge-medium">Medium</span>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">15</div>
+      <div class="action-content">
+        <div class="action-title">Monitor and optimize server-side performance</div>
+        <div class="action-desc">Once deployed, audit server headers: ensure HSTS, CSP, X-Content-Type-Options are set. Enable gzip/brotli compression. Set Cache-Control headers for static assets. Run Google PageSpeed Insights and Core Web Vitals assessment.</div>
+        <div class="action-impact">Expected impact: Improved technical SEO score and better user experience metrics</div>
+      </div>
+      <span class="badge badge-medium">Medium</span>
+    </div>
+  </div>
+
+  <div class="section-title" style="font-size: 18px; margin-top: 32px;">Full Implementation Checklist</div>
+  <div class="section-subtitle">Every actionable recommendation in one checklist</div>
+  <div class="card">
+    <div class="checklist-item"><div class="check-icon fail">1</div><div class="check-text">Add favicon to all 3 pages</div></div>
+    <div class="checklist-item"><div class="check-icon fail">2</div><div class="check-text">Fix homepage logo href="#" &rarr; href="/"</div></div>
+    <div class="checklist-item"><div class="check-icon fail">3</div><div class="check-text">Add preconnect for unpkg.com on all pages</div></div>
+    <div class="checklist-item"><div class="check-icon fail">4</div><div class="check-text">Add loading="lazy" to below-fold images</div></div>
+    <div class="checklist-item"><div class="check-icon fail">5</div><div class="check-text">Update dashboard H1 to keyword-rich heading</div></div>
+    <div class="checklist-item"><div class="check-icon fail">6</div><div class="check-text">Add CTA link from dashboard to contato.html</div></div>
+    <div class="checklist-item"><div class="check-icon fail">7</div><div class="check-text">Add ContactPage schema to contato.html</div></div>
+    <div class="checklist-item"><div class="check-icon fail">8</div><div class="check-text">Add WebApplication schema to dashboard.html</div></div>
+    <div class="checklist-item"><div class="check-icon fail">9</div><div class="check-text">Expand contato.html content to 400+ words</div></div>
+    <div class="checklist-item"><div class="check-icon fail">10</div><div class="check-text">Create "Pol&iacute;tica de Dados e LGPD" page</div></div>
+    <div class="checklist-item"><div class="check-icon fail">11</div><div class="check-text">Add BreadcrumbList schema to contato + dashboard</div></div>
+    <div class="checklist-item"><div class="check-icon fail">12</div><div class="check-text">Build 5-8 new content pages for topical authority</div></div>
+    <div class="checklist-item"><div class="check-icon fail">13</div><div class="check-text">Replace all placeholder footer links with real pages</div></div>
+    <div class="checklist-item"><div class="check-icon fail">14</div><div class="check-text">Add real social media profile URLs</div></div>
+    <div class="checklist-item"><div class="check-icon fail">15</div><div class="check-text">Audit server headers and performance post-deployment</div></div>
+  </div>
+
+</div>
+</div>
+
+<script>
+function switchTab(tabId) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + tabId).classList.add('active');
+  event.target.closest('.tab-btn').classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+document.querySelectorAll('.collapsible-header').forEach(header => {
+  header.addEventListener('click', () => {
+    header.closest('.collapsible').classList.toggle('open');
+  });
+});
+</script>
+
+</body>
+</html>

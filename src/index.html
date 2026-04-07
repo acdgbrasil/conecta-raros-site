@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conecta Raros — Mapeamento de Doenças Raras no Brasil</title>
+    <meta name="description" content="Conecta Raros: plataforma integrada de mapeamento de doenças genéticas e raras no Brasil para instituições, pesquisadores e órgãos públicos. Conforme a LGPD.">
+    <link rel="canonical" href="https://conectararos.org.br/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Conecta Raros">
+    <meta property="og:title" content="Conecta Raros — Mapeamento de Doenças Raras no Brasil">
+    <meta property="og:description" content="Primeiro ecossistema centralizado do Brasil para mapeamento de doenças genéticas e raras. Inteligência epidemiológica em tempo real para instituições e pesquisadores.">
+    <meta property="og:url" content="https://conectararos.org.br/">
+    <meta property="og:image" content="https://conectararos.org.br/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Conecta Raros — Mapeamento de Doenças Raras no Brasil">
+    <meta name="twitter:description" content="Plataforma integrada de dados epidemiológicos para doenças raras. Cadastro de pacientes, dashboards e modelos preditivos com IA.">
+    <meta name="twitter:image" content="https://conectararos.org.br/assets/og-image.png">
+
+    <!-- Extra SEO -->
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Associação Conecta Raros Brasil">
+    <meta name="theme-color" content="#E65C3B">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Structured Data: Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Conecta Raros",
+        "url": "https://conectararos.org.br",
+        "description": "Plataforma integrada de mapeamento de doenças genéticas e raras no Brasil.",
+        "email": "pesquisa@conectararos.org.br",
+        "areaServed": "BR",
+        "sameAs": []
+    }
+    </script>
+
+    <!-- Structured Data: FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Como é garantida a privacidade dos pacientes no Conecta Raros?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Utilizamos protocolos de anonimização nativa. Nenhum dado pessoal identificável (PII) é armazenado ou exibido na vitrine pública. Seguimos rigorosamente a LGPD e os padrões internacionais de segurança em saúde."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "A plataforma está em conformidade com a LGPD?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sim. O Conecta Raros foi desenvolvido sob o conceito de Privacy by Design. Toda a jornada do dado é protegida por criptografia de ponta a ponta e camadas de acesso restrito."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Como minha instituição pode se tornar uma parceira pioneira?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Estamos selecionando um grupo restrito de instituições para o programa de integração inicial. Basta preencher o formulário de contato ou falar diretamente com nossa equipe técnica via WhatsApp."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Existe algum custo para integrar meu hospital ou ONG ao ecossistema?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Possuímos modelos de parceria que visam democratizar o acesso à tecnologia para instituições de impacto social. Os custos variam conforme a complexidade da integração e o volume de usuários."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "De onde vêm os dados exibidos nos dashboards?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Os dados refletem o volume consolidado das instituições parceiras já integradas e projeções epidemiológicas validadas pela equipe técnica. O portal é atualizado continuamente."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Posso exportar os relatórios para uso em pesquisas acadêmicas?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sim. Instituições parceiras têm níveis de acesso diferenciados que permitem a exportação de dados consolidados para embasar estudos clínicos e publicações científicas."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+
+<body class="theme-light">
+
+    <!-- ═══════════════════════════════════════
+         HEADER
+    ═══════════════════════════════════════ -->
+    <header class="header" id="site-header">
+        <div class="container header-container">
+            <a href="#" class="logo">Conecta Raros</a>
+            <nav class="nav">
+                <a href="#sobre" class="nav-link">Sobre</a>
+                <a href="#publico" class="nav-link">Benefícios</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="contato.html" class="nav-link">Contato</a>
+            </nav>
+            <div class="header-actions">
+                <a href="dashboard.html" class="nav-link" style="margin-right: 8px; font-weight: 500; opacity: 0.65; font-size:13px;">Dashboard</a>
+                <a href="contato.html" class="btn btn-primary">Entrar em Contato</a>
+            </div>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Menu" aria-expanded="false">
+                <span class="menu-bar"></span>
+                <span class="menu-bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+        <nav class="mobile-menu-nav">
+            <a href="#sobre" class="mobile-menu-link">Sobre</a>
+            <a href="#publico" class="mobile-menu-link">Benefícios</a>
+            <a href="#faq" class="mobile-menu-link">FAQ</a>
+            <a href="contato.html" class="mobile-menu-link">Contato</a>
+            <a href="dashboard.html" class="mobile-menu-link mobile-menu-link-muted">Dashboard</a>
+        </nav>
+        <div class="mobile-menu-footer">
+            <a href="contato.html" class="btn btn-primary" style="width:100%; justify-content:center;">Entrar em Contato</a>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         HERO — Editorial Typographic
+    ═══════════════════════════════════════ -->
+    <section class="hero" id="hero-section">
+
+        <!-- Decorative arc -->
+        <div class="hero-arc hero-parallax-layer" data-depth="0.005"></div>
+
+        <!-- Floating dots (subtle) -->
+        <div class="hero-float hero-float-1 hero-parallax-layer" data-depth="-0.01"></div>
+        <div class="hero-float hero-float-2 hero-parallax-layer" data-depth="-0.012"></div>
+        <div class="hero-float hero-float-3 hero-parallax-layer" data-depth="-0.008"></div>
+
+        <!-- Watermark number -->
+        <div class="hero-number" aria-hidden="true">01</div>
+
+        <!-- Main content -->
+        <div class="hero-inner">
+            <div class="container">
+                <div class="hero-top">
+                    <p class="hero-eyebrow">Portal Público de Saúde</p>
+
+                    <h1 class="hero-title hero-parallax-layer" data-depth="0.002">
+                        Conectando dados para transformar a realidade das <em class="text-accent">Doenças Raras</em> no Brasil.
+                    </h1>
+
+                    <div class="hero-bottom-block">
+                        <p class="hero-subtitle">
+                            Uma plataforma integrada para cadastro de pacientes e análise de indicadores epidemiológicos em tempo real para instituições, pesquisadores e órgãos públicos.
+                        </p>
+                        <div class="hero-actions">
+                            <a href="contato.html" class="btn btn-primary">Seja uma Instituição Parceira</a>
+                            <a href="dashboard.html" class="btn btn-outline">Explorar Dashboards Públicos</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats bar — dark bottom strip -->
+        <div class="hero-stats-bar">
+            <div class="container hero-stats-inner">
+                <div class="hero-stat-item">
+                    <span class="hero-stat-label">Mapeamento</span>
+                    <span class="hero-stat-value">Abrangência Nacional</span>
+                </div>
+                <div class="hero-stat-item">
+                    <span class="hero-stat-label">Segurança</span>
+                    <span class="hero-stat-value">Conformidade com a LGPD</span>
+                </div>
+                <div class="hero-stat-item">
+                    <span class="hero-stat-label">Status</span>
+                    <span class="hero-stat-value">Integração de Pioneiros Aberta</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Partners -->
+        <div class="hero-partners">
+            <div class="container hero-partners-inner">
+                <span class="hero-partners-label">Instituições Parceiras</span>
+                <img src="assets/logo-roraima.png"
+                    onerror="this.onerror=null; this.src='assets/logo-roraima.svg';"
+                    alt="Governo de Roraima"
+                    style="height:30px; object-fit:contain; filter:brightness(0) invert(1) opacity(0.4); transition:filter 0.3s;"
+                    onmouseover="this.style.filter='brightness(0) invert(1) opacity(0.8)'"
+                    onmouseout="this.style.filter='brightness(0) invert(1) opacity(0.4)'">
+                <img src="assets/logo-acdg.png"
+                    onerror="this.onerror=null; this.src='assets/logo-acdg.svg';"
+                    alt="ACDG"
+                    style="height:30px; object-fit:contain; filter:brightness(0) invert(1) opacity(0.4); transition:filter 0.3s;"
+                    onmouseover="this.style.filter='brightness(0) invert(1) opacity(0.8)'"
+                    onmouseout="this.style.filter='brightness(0) invert(1) opacity(0.4)'">
+                <img src="assets/logo-envolve.png"
+                    onerror="this.onerror=null; this.src='assets/logo-envolve.svg';"
+                    alt="Envolve"
+                    style="height:22px; object-fit:contain; filter:brightness(0) invert(1) opacity(0.4); transition:filter 0.3s;"
+                    onmouseover="this.style.filter='brightness(0) invert(1) opacity(0.8)'"
+                    onmouseout="this.style.filter='brightness(0) invert(1) opacity(0.4)'">
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SOBRE — Section 02
+    ═══════════════════════════════════════ -->
+    <section id="sobre" class="sobre-section">
+
+        <!-- Watermark -->
+        <div class="section-number" aria-hidden="true" style="top:-5%; left:-2%;">02</div>
+
+        <div class="container" style="position:relative; z-index:1;">
+            <div style="display:flex; flex-wrap:nowrap; gap:0; align-items:stretch; border:1.5px solid var(--text);">
+
+                <!-- Left: Text content -->
+                <div class="sobre-content reveal-up" style="flex:1 1 500px; border-right:1.5px solid var(--text);">
+                    <p class="eyebrow">Sobre a Plataforma</p>
+                    <h2 class="section-title" style="margin-bottom:32px;">
+                        Conectando<br>dados para<br>viabilizar<br>curas reais.
+                    </h2>
+                    <p style="font-size:19px; line-height:1.55; margin-bottom:0; font-weight:400; color:var(--text);">
+                        O <strong style="color:var(--accent);">Conecta Raros</strong> é o primeiro ecossistema centralizado do Brasil focado puramente no mapeamento de doenças genéticas e raras.
+                    </p>
+
+                    <div class="sobre-info-row">
+                        <div class="sobre-info-item">
+                            <h4>O que nós fazemos?</h4>
+                            <p>Concentramos microdados epidemiológicos esparsos e criamos uma fonte única de inteligência e projeção diagnóstica a nível nacional.</p>
+                        </div>
+                        <div class="sobre-info-item">
+                            <h4>A Segurança</h4>
+                            <p>A nossa tecnologia anonimiza nativamente qualquer Dado Pessoal Identificável (PII), respeitando integralmente a LGPD Brasileira.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Orange panel -->
+                <div class="sobre-visual reveal-up delay-2" style="flex:1 1 340px;">
+                    <h3>O Motor Do<br>Diagnóstico.</h3>
+                    <p>Ao traduzir milhares de diagnósticos não mapeados em inteligência acionável, tornamos novas terapias viáveis.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         DASHBOARD PREVIEW — Section 03
+    ═══════════════════════════════════════ -->
+    <section id="dashboard-preview" class="dp-section">
+
+        <!-- Watermark CR -->
+        <div aria-hidden="true" style="position:absolute; top:-5%; right:-4%; font-size:clamp(200px,28vw,480px); font-weight:800; color:rgba(255,255,255,0.02); line-height:0.8; pointer-events:none; z-index:0; letter-spacing:-0.06em; user-select:none;">CR</div>
+
+        <div class="container" style="position:relative; z-index:1;">
+
+            <!-- Heading -->
+            <div class="dp-heading-block reveal-up">
+                <p class="dp-eyebrow">Painel de Dados</p>
+                <h2 class="dp-title">Dados em<br>tempo real.</h2>
+                <p class="dp-subtitle">Visibilidade completa sobre o mapeamento nacional de doenças raras — direto do nosso motor de inteligência.</p>
+            </div>
+
+            <!-- KPI Cards -->
+            <div class="dp-kpi-grid reveal-up delay-1">
+
+                <!-- KPI 1 -->
+                <div>
+                    <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:20px;">
+                        <span style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.35); font-weight:700;">VOLUME TOTAL DE REGISTROS</span>
+                        <span style="font-size:10px; padding:3px 8px; font-weight:700; background:rgba(16,185,129,0.15); color:#10B981; letter-spacing:0.5px;">+18.7%</span>
+                    </div>
+                    <div style="font-size:clamp(48px,5vw,72px); font-weight:800; color:#FFFFFF; letter-spacing:-0.04em; line-height:1; margin-bottom:24px;">15,002</div>
+                    <div style="display:flex; align-items:flex-end; gap:2px; height:40px;">
+                        <div style="flex:1; height:12%; background:rgba(255,255,255,0.06);"></div>
+                        <div style="flex:1; height:18%; background:rgba(255,255,255,0.06);"></div>
+                        <div style="flex:1; height:25%; background:rgba(255,255,255,0.06);"></div>
+                        <div style="flex:1; height:32%; background:rgba(255,255,255,0.06);"></div>
+                        <div style="flex:1; height:40%; background:rgba(255,255,255,0.06);"></div>
+                        <div style="flex:1; height:50%; background:rgba(255,255,255,0.06);"></div>
+                        <div style="flex:1; height:58%; background:rgba(255,255,255,0.06);"></div>
+                        <div style="flex:1; height:65%; background:rgba(255,255,255,0.06);"></div>
+                        <div style="flex:1; height:72%; background:rgba(255,255,255,0.06);"></div>
+                        <div style="flex:1; height:80%; background:rgba(255,255,255,0.06);"></div>
+                        <div style="flex:1; height:88%; background:rgba(255,255,255,0.06);"></div>
+                        <div style="flex:1; height:100%; background:#FFFFFF;"></div>
+                    </div>
+                </div>
+
+                <!-- KPI 2 -->
+                <div>
+                    <div style="margin-bottom:20px;">
+                        <span style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.35); font-weight:700;">SÍNDROMES CATALOGADAS</span>
+                    </div>
+                    <div style="margin-bottom:20px;">
+                        <span style="font-size:clamp(48px,5vw,72px); font-weight:800; color:#FFFFFF; letter-spacing:-0.04em; line-height:1;">430</span>
+                        <span style="font-size:13px; color:rgba(255,255,255,0.35); font-weight:500; margin-left:8px;">/ 500 ALVO</span>
+                    </div>
+                    <div style="height:2px; background:rgba(255,255,255,0.06);">
+                        <div style="height:100%; width:86%; background:var(--accent);"></div>
+                    </div>
+                    <div style="margin-top:8px; font-size:10px; color:rgba(255,255,255,0.3); letter-spacing:1px;">86% DO OBJETIVO</div>
+                </div>
+
+                <!-- KPI 3 -->
+                <div style="background:var(--accent) !important;">
+                    <div style="margin-bottom:20px;">
+                        <span style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:rgba(0,0,0,0.45); font-weight:700;">HOSPITAIS ATIVOS</span>
+                    </div>
+                    <div style="font-size:clamp(48px,5vw,72px); font-weight:800; color:var(--dark); letter-spacing:-0.04em; line-height:1; margin-bottom:16px;">24</div>
+                    <p style="font-size:13px; color:rgba(0,0,0,0.55); line-height:1.5; font-weight:500;">+4 novas unidades no Nordeste neste trimestre.</p>
+                </div>
+            </div>
+
+            <!-- Recent records table -->
+            <div class="dp-table-wrap reveal-up delay-2">
+                <div class="dp-table-header">
+                    <span style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.35); font-weight:700;">REGISTROS RECENTES</span>
+                    <a href="dashboard.html" style="font-size:11px; color:rgba(255,255,255,0.4); text-decoration:none; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; display:flex; align-items:center; gap:6px; transition:color 0.2s;">
+                        Ver todos <i class="ph ph-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="dp-table-row dp-table-head" style="color:rgba(255,255,255,0.3);">
+                    <span>ID</span><span>MUNICÍPIO</span><span>DATA</span><span>STATUS</span>
+                </div>
+                <div class="dp-table-row" style="color:rgba(255,255,255,0.7);">
+                    <span>#CR-001</span><span>Fortaleza, CE</span><span>12 Mar 2026</span>
+                    <span style="display:inline-block; padding:3px 10px; font-weight:700; font-size:10px; letter-spacing:1px; background:rgba(16,185,129,0.15); color:#10B981;">Processado</span>
+                </div>
+                <div class="dp-table-row" style="color:rgba(255,255,255,0.7);">
+                    <span>#CR-002</span><span>Recife, PE</span><span>11 Mar 2026</span>
+                    <span style="display:inline-block; padding:3px 10px; font-weight:700; font-size:10px; letter-spacing:1px; background:rgba(230,92,59,0.15); color:var(--accent);">Em Análise</span>
+                </div>
+                <div class="dp-table-row" style="color:rgba(255,255,255,0.7);">
+                    <span>#CR-003</span><span>Salvador, BA</span><span>10 Mar 2026</span>
+                    <span style="display:inline-block; padding:3px 10px; font-weight:700; font-size:10px; letter-spacing:1px; background:rgba(16,185,129,0.15); color:#10B981;">Processado</span>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="dp-cta reveal-up delay-3">
+                <p style="font-size:15px; color:rgba(255,255,255,0.4); max-width:380px; line-height:1.5;">Acesse o painel completo com todos os módulos de relatórios, pacientes e modelos preditivos.</p>
+                <a href="dashboard.html" class="btn btn-outline-light">
+                    Explorar Dashboard <i class="ph ph-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         BENEFÍCIOS — Section 04
+    ═══════════════════════════════════════ -->
+    <section id="publico" class="audience">
+
+        <!-- Watermark -->
+        <div class="section-number" aria-hidden="true" style="top:0; right:-8%; opacity:0.025;">Raros</div>
+
+        <div class="container" style="position:relative; z-index:1;">
+            <div class="audience-header reveal-up">
+                <p class="eyebrow">Benefícios Principais</p>
+                <h2 class="section-title">Inovação técnica para acelerar a pesquisa biomédica nacional.</h2>
+            </div>
+
+            <div class="audience-grid cols-3">
+
+                <!-- Chart 1: Area Chart -->
+                <div class="audience-card reveal-up delay-1" style="overflow:hidden;">
+                    <div style="padding:20px 24px 12px; border-bottom:1px solid var(--border);">
+                        <span style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--muted);">FIG 1.A — TAXA DE DIAGNÓSTICO CRESCE 1% AO MÊS</span>
+                    </div>
+                    <div style="padding:16px 24px 0; position:relative;">
+                        <div style="position:absolute; left:8px; top:16px; bottom:40px; display:flex; flex-direction:column; justify-content:space-between;">
+                            <span style="font-size:10px; color:var(--muted); font-weight:500;">70%</span>
+                            <span style="font-size:10px; color:var(--muted); font-weight:500;">50%</span>
+                            <span style="font-size:10px; color:var(--muted); font-weight:500;">30%</span>
+                            <span style="font-size:10px; color:var(--muted); font-weight:500;">10%</span>
+                        </div>
+                        <svg viewBox="0 0 300 120" style="width:100%; height:auto; display:block; margin-left:20px;" preserveAspectRatio="none">
+                            <line x1="0" y1="15" x2="300" y2="15" stroke="var(--border)" stroke-width="0.5" stroke-dasharray="3,3"/>
+                            <line x1="0" y1="45" x2="300" y2="45" stroke="var(--border)" stroke-width="0.5" stroke-dasharray="3,3"/>
+                            <line x1="0" y1="75" x2="300" y2="75" stroke="var(--border)" stroke-width="0.5" stroke-dasharray="3,3"/>
+                            <line x1="0" y1="105" x2="300" y2="105" stroke="var(--border)" stroke-width="0.5"/>
+                            <defs>
+                                <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.5"/>
+                                    <stop offset="100%" stop-color="var(--accent)" stop-opacity="0.03"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M0,85 C20,80 40,75 60,70 C80,68 100,62 120,55 C140,50 160,48 180,42 C200,38 220,35 240,30 C260,27 280,24 300,22 L300,105 L0,105 Z" fill="url(#areaGrad)"/>
+                            <path d="M0,85 C20,80 40,75 60,70 C80,68 100,62 120,55 C140,50 160,48 180,42 C200,38 220,35 240,30 C260,27 280,24 300,22" fill="none" stroke="var(--accent)" stroke-width="1.5"/>
+                            <circle cx="0" cy="85" r="2.5" fill="var(--bg)" stroke="var(--accent)" stroke-width="1.5"/>
+                            <circle cx="120" cy="55" r="2.5" fill="var(--bg)" stroke="var(--accent)" stroke-width="1.5"/>
+                            <circle cx="240" cy="30" r="2.5" fill="var(--bg)" stroke="var(--accent)" stroke-width="1.5"/>
+                            <circle cx="300" cy="22" r="2.5" fill="var(--bg)" stroke="var(--accent)" stroke-width="1.5"/>
+                        </svg>
+                        <div style="display:flex; justify-content:space-between; margin-left:20px; padding:8px 0 16px;">
+                            <span style="font-size:9px; color:var(--muted); font-weight:600; letter-spacing:0.5px;">JAN</span>
+                            <span style="font-size:9px; color:var(--muted); font-weight:600; letter-spacing:0.5px;">MAR</span>
+                            <span style="font-size:9px; color:var(--muted); font-weight:600; letter-spacing:0.5px;">MAI</span>
+                            <span style="font-size:9px; color:var(--muted); font-weight:600; letter-spacing:0.5px;">JUL</span>
+                            <span style="font-size:9px; color:var(--muted); font-weight:600; letter-spacing:0.5px;">SET</span>
+                            <span style="font-size:9px; color:var(--muted); font-weight:600; letter-spacing:0.5px;">NOV</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart 2: Bar Chart -->
+                <div class="audience-card reveal-up delay-2" style="overflow:hidden;">
+                    <div style="padding:20px 24px 12px; border-bottom:1px solid var(--border);">
+                        <span style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--muted);">FIG 1.B — PRECISÃO POR MÓDULO DE ANÁLISE</span>
+                    </div>
+                    <div style="padding:24px;">
+                        <div style="display:flex; gap:8px; align-items:flex-end;">
+                            <div style="display:flex; flex-direction:column; justify-content:space-between; height:160px; padding-bottom:4px;">
+                                <span style="font-size:10px; color:var(--muted); font-weight:500;">80%</span>
+                                <span style="font-size:10px; color:var(--muted); font-weight:500;">60%</span>
+                                <span style="font-size:10px; color:var(--muted); font-weight:500;">40%</span>
+                                <span style="font-size:10px; color:var(--muted); font-weight:500;">20%</span>
+                            </div>
+                            <div style="flex:1; display:flex; align-items:flex-end; gap:16px; justify-content:center; height:160px; border-bottom:1px solid var(--border); border-left:1px solid var(--border); padding:0 16px 0 8px;">
+                                <div style="display:flex; flex-direction:column; align-items:center; gap:6px; flex:1;">
+                                    <span style="font-size:10px; font-weight:700; color:var(--text); border:1px solid var(--border); padding:2px 6px;">49%</span>
+                                    <div style="width:100%; height:78px; background:var(--border-light); border:1px solid var(--border);"></div>
+                                </div>
+                                <div style="display:flex; flex-direction:column; align-items:center; gap:6px; flex:1;">
+                                    <span style="font-size:10px; font-weight:700; color:var(--text); border:1px solid var(--border); padding:2px 6px;">58%</span>
+                                    <div style="width:100%; height:93px; background:var(--border-light); border:1px solid var(--border);"></div>
+                                </div>
+                                <div style="display:flex; flex-direction:column; align-items:center; gap:6px; flex:1;">
+                                    <span style="font-size:10px; font-weight:700; color:var(--accent); border:1px solid var(--accent); padding:2px 6px;">73%</span>
+                                    <div style="width:100%; height:117px; background:var(--accent); opacity:0.85;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display:flex; justify-content:center; gap:16px; margin-left:28px; padding-top:12px;">
+                            <span style="font-size:10px; color:var(--muted); font-weight:600; text-transform:uppercase; flex:1; text-align:center; letter-spacing:1px;">NLP</span>
+                            <span style="font-size:10px; color:var(--muted); font-weight:600; text-transform:uppercase; flex:1; text-align:center; letter-spacing:1px;">FENÓTIPO</span>
+                            <span style="font-size:10px; color:var(--accent); font-weight:700; text-transform:uppercase; flex:1; text-align:center; letter-spacing:1px;">CLUSTERS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Testimonial + Impact -->
+                <div class="audience-card reveal-up delay-3" style="overflow:hidden; display:flex; flex-direction:column;">
+                    <div style="padding:20px 24px 12px; border-bottom:1px solid var(--border);">
+                        <span style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--muted);">FIG 1.C — IMPACTO INSTITUCIONAL</span>
+                    </div>
+                    <div style="padding:32px 24px; flex:1; display:flex; flex-direction:column; justify-content:center;">
+                        <div style="margin-bottom:24px;">
+                            <span style="font-size:clamp(40px,4vw,56px); font-weight:800; color:var(--text); letter-spacing:-0.04em; line-height:1;">+42%</span>
+                            <div style="margin-top:6px;"><span style="font-size:12px; color:var(--muted); font-weight:500; letter-spacing:0.5px; text-transform:uppercase;">Taxa de diagnóstico precoce</span></div>
+                        </div>
+                        <p class="testimonial-quote">
+                            "O Conecta Raros é uma ferramenta <span style="background:var(--accent); color:#fff; padding:1px 5px;">transformadora</span> para a pesquisa em doenças raras. Conseguimos reduzir o tempo de triagem em <span style="background:var(--accent); color:#fff; padding:1px 5px;">semanas para horas.</span>"
+                        </p>
+                        <div class="testimonial-attr">
+                            Coordenador de Pesquisa Clínica, Instituição Parceira — Nordeste
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         POR TRÁS DOS DADOS — Section 05
+    ═══════════════════════════════════════ -->
+    <section id="origem" class="credibility-section">
+        <div class="container">
+            <div class="credibility-header reveal-up">
+                <p class="eyebrow">Por Trás dos Dados</p>
+                <h2 class="section-title">Ciência aberta exige<br>privacidade de ponta a ponta.</h2>
+                <p class="credibility-subtitle">Nossa vitrine pública reflete apenas a ponta do iceberg. O Conecta Raros é alimentado por um Sistema de Cadastro Clínico robusto, isolado e em total conformidade com a LGPD.</p>
+            </div>
+
+            <div class="flowchart-container reveal-up delay-2">
+
+                <div class="flow-step">
+                    <div class="step-icon"><i class="ph ph-stethoscope"></i></div>
+                    <h4>Hospitais Parceiros</h4>
+                    <p>Médicos especialistas registram os diagnósticos em nossa plataforma com máxima segurança.</p>
+                </div>
+
+                <div class="flow-arrow" aria-hidden="true">
+                    <i class="ph ph-arrow-right" style="font-size:16px;"></i>
+                </div>
+
+                <div class="flow-step highlight-step">
+                    <div class="step-icon"><i class="ph ph-shield-check"></i></div>
+                    <h4>Privacidade Garantida</h4>
+                    <p>Nossa tecnologia remove todos os dados pessoais do paciente automaticamente, garantindo sigilo e proteção total.</p>
+                </div>
+
+                <div class="flow-arrow" aria-hidden="true">
+                    <i class="ph ph-arrow-right" style="font-size:16px;"></i>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-icon"><i class="ph ph-globe-hemisphere-west"></i></div>
+                    <h4>Portal Conecta Raros</h4>
+                    <p>Macrodados consolidados são publicados no portal público.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         FAQ — Section 06
+    ═══════════════════════════════════════ -->
+    <section id="faq" class="faq-section">
+        <div class="container" style="max-width:820px;">
+
+            <div class="reveal-up" style="text-align:center; margin-bottom:72px;">
+                <p class="eyebrow" style="justify-content:center;">Dúvidas Frequentes</p>
+                <h2 class="section-title" style="font-size:clamp(32px,4vw,56px);">Perguntas Frequentes</h2>
+            </div>
+
+            <div class="reveal-up delay-1">
+
+                <details class="faq-item" open>
+                    <summary>
+                        <span class="faq-number">01</span>
+                        Como é garantida a privacidade dos pacientes no Conecta Raros?
+                        <span style="display:inline-flex; flex-shrink:0; font-size:18px; color:var(--muted-light);">
+                            <i class="ph ph-plus icon-plus"></i>
+                            <i class="ph ph-minus icon-minus"></i>
+                        </span>
+                    </summary>
+                    <div class="faq-content">
+                        <div class="faq-content-inner">
+                            <p>Utilizamos protocolos de anonimização nativa. Isso significa que nenhum dado pessoal identificável (PII) é armazenado ou exibido na vitrine pública. Seguimos rigorosamente a LGPD (Lei Geral de Proteção de Dados) e os padrões internacionais de segurança em saúde.</p>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>
+                        <span class="faq-number">02</span>
+                        A plataforma está em conformidade com a LGPD?
+                        <span style="display:inline-flex; flex-shrink:0; font-size:18px; color:var(--muted-light);">
+                            <i class="ph ph-plus icon-plus"></i>
+                            <i class="ph ph-minus icon-minus"></i>
+                        </span>
+                    </summary>
+                    <div class="faq-content">
+                        <div class="faq-content-inner">
+                            <p>Sim. O Conecta Raros foi desenvolvido sob o conceito de Privacy by Design. Toda a jornada do dado — da coleta à visualização — é protegida por criptografia de ponta a ponta e camadas de acesso restrito, garantindo segurança jurídica total para as instituições parceiras.</p>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>
+                        <span class="faq-number">03</span>
+                        Como minha instituição pode se tornar uma parceira pioneira?
+                        <span style="display:inline-flex; flex-shrink:0; font-size:18px; color:var(--muted-light);">
+                            <i class="ph ph-plus icon-plus"></i>
+                            <i class="ph ph-minus icon-minus"></i>
+                        </span>
+                    </summary>
+                    <div class="faq-content">
+                        <div class="faq-content-inner">
+                            <p>Estamos selecionando um grupo restrito de instituições para o nosso programa de integração inicial. Para participar, basta preencher o formulário de contato ou falar diretamente com nossa equipe técnica via WhatsApp para agendar uma demonstração da plataforma de cadastro.</p>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>
+                        <span class="faq-number">04</span>
+                        Existe algum custo para integrar meu hospital ou ONG ao ecossistema?
+                        <span style="display:inline-flex; flex-shrink:0; font-size:18px; color:var(--muted-light);">
+                            <i class="ph ph-plus icon-plus"></i>
+                            <i class="ph ph-minus icon-minus"></i>
+                        </span>
+                    </summary>
+                    <div class="faq-content">
+                        <div class="faq-content-inner">
+                            <p>Atualmente, possuímos modelos de parceria que visam democratizar o acesso à tecnologia para instituições de impacto social. Os custos de implementação variam conforme a complexidade da integração de dados e o volume de usuários.</p>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>
+                        <span class="faq-number">05</span>
+                        De onde vêm os dados exibidos nos dashboards?
+                        <span style="display:inline-flex; flex-shrink:0; font-size:18px; color:var(--muted-light);">
+                            <i class="ph ph-plus icon-plus"></i>
+                            <i class="ph ph-minus icon-minus"></i>
+                        </span>
+                    </summary>
+                    <div class="faq-content">
+                        <div class="faq-content-inner">
+                            <p>Os dados refletem o volume consolidado das instituições parceiras já integradas e projeções epidemiológicas validadas pela nossa equipe técnica. O portal é atualizado continuamente conforme novas integrações são concluídas.</p>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>
+                        <span class="faq-number">06</span>
+                        Posso exportar os relatórios para uso em pesquisas acadêmicas?
+                        <span style="display:inline-flex; flex-shrink:0; font-size:18px; color:var(--muted-light);">
+                            <i class="ph ph-plus icon-plus"></i>
+                            <i class="ph ph-minus icon-minus"></i>
+                        </span>
+                    </summary>
+                    <div class="faq-content">
+                        <div class="faq-content-inner">
+                            <p>Sim. Um dos objetivos do Conecta Raros é fomentar a ciência aberta. Instituições parceiras têm níveis de acesso diferenciados que permitem a exportação de dados consolidados para embasar estudos clínicos e publicações científicas.</p>
+                        </div>
+                    </div>
+                </details>
+
+            </div>
+
+            <div class="faq-cta reveal-up delay-2">
+                <p>Ainda com dúvidas ou deseja iniciar uma parceria oficial?</p>
+                <a href="contato.html" class="btn btn-primary">Falar com a Equipe</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         FOOTER
+    ═══════════════════════════════════════ -->
+    <footer class="footer">
+
+        <!-- Giant watermark -->
+        <div class="footer-watermark" aria-hidden="true">RAROS</div>
+
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col reveal-up">
+                    <h2>Conecta Raros</h2>
+                    <p>Democratizando o acesso a microdados epidemiológicos robustos. Tecnologia aplicada para acelerar terapias e curas no Brasil.</p>
+                    <a href="contato.html" class="btn btn-primary" style="margin-top:4px;">
+                        Faça parte da rede
+                        <i class="ph ph-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="footer-col footer-links reveal-up delay-1">
+                    <h4>Plataforma</h4>
+                    <a href="#">Painel Demográfico</a>
+                    <a href="#">Painel Clínico</a>
+                    <a href="#">Portal do Pesquisador</a>
+                    <a href="#">API de Saúde</a>
+                </div>
+
+                <div class="footer-col footer-links reveal-up delay-2">
+                    <h4>Institucional & Ética</h4>
+                    <a href="#">Comitê de Ética (CONEP)</a>
+                    <a href="#">Política de Dados e LGPD</a>
+                    <a href="#">Segurança da Informação</a>
+                    <a href="#">Governança Compartilhada</a>
+                </div>
+
+                <div class="footer-col reveal-up delay-3">
+                    <h4>Fale Conosco</h4>
+                    <p>pesquisa@conectararos.org.br</p>
+                    <div class="social-icons">
+                        <i class="ph-fill ph-linkedin-logo"></i>
+                        <i class="ph-fill ph-twitter-logo"></i>
+                        <i class="ph-fill ph-github-logo"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-copyright reveal-up">
+                <p>&copy; 2026 Associação Conecta Raros Brasil. Todos os direitos reservados.</p>
+                <p style="opacity:0.5;">Plataforma em conformidade com a LGPD</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/5585996967404?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20como%20integrar%20minha%20institui%C3%A7%C3%A3o%20ao%20Conecta%20Raros."
+        target="_blank" rel="noopener noreferrer" class="whatsapp-float hidden" aria-label="WhatsApp">
+        <i class="ph ph-whatsapp-logo" style="font-size:26px;"></i>
+    </a>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

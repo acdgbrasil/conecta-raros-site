@@ -1,0 +1,15 @@
+services:
+  # ----- Serviço da aplicação -----
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: "3000"
+      API_BASE_URL: "http://api.conecta-raros.local"
+    # Adicionando healthcheck para o docker-compose
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3

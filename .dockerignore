@@ -1,0 +1,15 @@
+.git
+.gitignore
+.dockerignore
+.env
+.DS_Store
+node_modules/
+dist/
+coverage/
+scripts/
+handbook/
+.github/
+Makefile
+docker-compose.yml
+README.md
+CHANGELOG.md
