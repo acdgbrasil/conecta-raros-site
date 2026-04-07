@@ -6,7 +6,10 @@
 node_modules/
 dist/
 coverage/
-scripts/
+# scripts/ é necessário no build (docker-entrypoint.sh),
+# então ignoramos tudo dentro exceto o entrypoint
+scripts/*
+!scripts/docker-entrypoint.sh
 handbook/
 .github/
 Makefile
