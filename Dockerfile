@@ -3,7 +3,7 @@
 # ============================================================
 # Stage 1: Build & Prepare
 # ============================================================
-FROM nginx:1.25-alpine AS build
+FROM nginx:1.29-alpine AS build
 
 WORKDIR /build
 
@@ -34,7 +34,7 @@ RUN echo 'server {' > /build/nginx.conf && \
 # ============================================================
 # Stage 2: Runtime (imagem slim/alpine)
 # ============================================================
-FROM nginx:1.25-alpine
+FROM nginx:1.29-alpine
 
 # OCI labels required on final image too
 LABEL org.opencontainers.image.source="https://github.com/acdgbrasil/conecta-raros-site"
