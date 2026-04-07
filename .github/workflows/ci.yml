@@ -29,7 +29,16 @@ jobs:
       - name: Test with coverage gate
         run: make coverage
 
-  # ---- Job 2: Build e push da imagem ----
+  # ---- Job 2: SBOM ----
+  sbom:
+    name: SBOM
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    needs: test
+    uses: acdgbrasil/.github/.github/workflows/reusable-sbom.yml@main
+    permissions:
+      contents: write
+
+  # ---- Job 3: Build e push da imagem ----
   image:
     name: Build & Publish Image
     needs: test
