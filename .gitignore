@@ -5,3 +5,10 @@ dist/
 coverage/
 *.log
 superpowers/
+.claude/
+
+# Runtime config — gerado pelo entrypoint do container, nunca commitar
+src/runtime-config.js
+
+# Artefatos de auditoria/relatórios (não pertencem ao código de produção)
+seo-strategy-*.html

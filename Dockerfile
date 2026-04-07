@@ -8,7 +8,7 @@ FROM nginx:1.25-alpine AS build
 WORKDIR /build
 
 # Labels OCI obrigatórios (validados pela CI)
-LABEL org.opencontainers.image.source="https://github.com/acdgbrasil/svc-conecta-raros-frontend"
+LABEL org.opencontainers.image.source="https://github.com/acdgbrasil/conecta-raros-site"
 LABEL org.opencontainers.image.description="ACDG svc-conecta-raros-frontend service"
 LABEL org.opencontainers.image.licenses="Proprietary"
 
@@ -37,7 +37,7 @@ RUN echo 'server {' > /build/nginx.conf && \
 FROM nginx:1.25-alpine
 
 # OCI labels required on final image too
-LABEL org.opencontainers.image.source="https://github.com/acdgbrasil/svc-conecta-raros-frontend"
+LABEL org.opencontainers.image.source="https://github.com/acdgbrasil/conecta-raros-site"
 LABEL org.opencontainers.image.description="ACDG svc-conecta-raros-frontend service"
 LABEL org.opencontainers.image.licenses="Proprietary"
 
